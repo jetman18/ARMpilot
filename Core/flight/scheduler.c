@@ -71,11 +71,11 @@ static void mavlink(){
 
 task_t task[]={ 
    {ahrs_update,      0,0,0,Feq_200hz}, 
+   
 #ifdef SIMULATION
-   {attitude_ctrl,    0,0,0,Feq_100hz},
+   {attitude_ctrl,    0,0,0,Feq_50hz}
 #endif
-   {tongepin5,          0,0,0,Feq_5hz}
-   //{pidUpdate,       0,0,0,1},
+  // {tongepin5,          0,0,0,Feq_5hz}
    //{hmc_get_raw,         0,0,0,3},
    //{ms5611_start,         0,0,0,1},
    //{hmc_get_raw,         0,0,0,10},   
@@ -93,7 +93,7 @@ void init_scheduler(){
    timer_start(&htim7); // hardwave init
    //initPWM(&htim3);    // for pwm
     //HITL_init(&huart2);
-    mavlinkInit(22,10,&huart1,115200);
+   mavlinkInit(22,10,&huart1,115200);
 
   /*------sensor init----------*/ 
 #ifdef SIMULATION
@@ -116,6 +116,7 @@ void init_scheduler(){
     max_excution_time_us = zeroSet();
 	num_tasks  = sizeof(task)/sizeof(task_t);
 	loop_us = (1.0f/ LOOP_FEQ)*1e+6 ;
+	//HAL_Delay(2000);
 }
 
 void start_scheduler() {

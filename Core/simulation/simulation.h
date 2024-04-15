@@ -15,9 +15,9 @@ typedef struct dynamic_mode
     float pitch_rate;
     float yaw_rate;
 
-    int32_t lat;
-    int32_t lon;
-    uint32_t alt;
+    float lat;
+    float lon;
+    float alt;
 
     float velocity;
 }sim_attitude;

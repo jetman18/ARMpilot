@@ -15,13 +15,13 @@ typedef struct {
 }quaternion_t;
 
 typedef struct{
-    float roll;
-	  float pitch;
-    float yaw;
+    float r;
+	  float p;
+    float y;
 
-    float roll_rate;
-    float pitch_rate;
-    float yaw_rate;
+    float r_rate;
+    float p_rate;
+    float y_rate;
 
     float acc_x;
     float acc_y;

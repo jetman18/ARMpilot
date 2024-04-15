@@ -26,6 +26,7 @@
 "armpilot\startup_stm32f103xe.o"
 "armpilot\main.o"
 "armpilot\gpio.o"
+"armpilot\dma.o"
 "armpilot\i2c.o"
 "armpilot\sdio.o"
 "armpilot\tim.o"

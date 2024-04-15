@@ -72,7 +72,7 @@ static float circleFly(uint32_t lat,uint32_t lon,uint32_t radius)
      crossTrack = crossTrack - CRICLE_RADIUS;
      float Kc = 500.0f/CRICLE_RADIUS;
      float bearing = waypointBearing(latitude_g,longitude_g,loiter_latitude,loiter_longitude);
-     float yaw_target = bearing + 90.0f - MIN(fabs(crossTrack*Kc),90)*sign(crossTrack);
+     float yaw_target = bearing + 90.0f - MAX(fabs(crossTrack*Kc),90)*sign(crossTrack);
      yaw_target = range360(yaw_target);
      return yaw_target;
 }
@@ -110,7 +110,7 @@ static float waypointFolow(){
    phi = range180(phi)*toRAD;
    int32_t cross_track = dis2nextwp*sin_approx(phi);
    float temp_angle = powf(fabs(cross_track*Kc),Kd);
-   float theta = path_angle - MIN(temp_angle,90)*sign(cross_track);
+   float theta = path_angle - MAX(temp_angle,90)*sign(cross_track);
    theta = range360(theta);
    return theta;
 }

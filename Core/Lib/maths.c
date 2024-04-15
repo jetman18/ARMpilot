@@ -118,7 +118,7 @@ int gcd(int num, int denom)
 
 int32_t applyDeadband(const int32_t value, const int32_t deadband)
 {
-    if (ABS(value) < deadband) {
+    if (abs(value) < deadband) {
         return 0;
     }
 

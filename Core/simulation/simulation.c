@@ -1,10 +1,10 @@
 #include"simulation.h"
 #include "maths.h"
 #include "utils.h"
-#define Dt 0.01f
+#define Dt 0.02f
 // constan variables
 static float pi = 3.14159;
-float eart_radius =  6371000;  // m
+static float eart_radius =  6371000;  // m
 static float gravity      = -9.81 ;
 static float toDeg = 57.29577;
 static float toRad = 0.01745;
@@ -33,52 +33,45 @@ float Iyy             = 0.018;
 float Izz             = 0.0251;
 //float init_latitude  = 37.628715674334124;  //deg
 //float init_longitude = -122.39334575867426; //deg
-double init_latitude  = 37.472;
-double init_longitude = -121.170;
-float init_altitude  =  5;                //m
+float init_latitude  = 37.472;
+float init_longitude = -121.170;
+float init_altitude  =  50;                //m
 
 static float swap180(float val);
 static float swap360(float val);
 
 // attitude
-uint8_t isFlying = 0;
+static uint8_t isFlying = 0;
 uint8_t pre_run = 1;
 float alpha,beta;   // sideslip angle
 
-float roll = 0;
-float pitch = 0;//10*toRad;
-float yaw = 0;//358*toRad;
+static float roll = 0;
+static float pitch = 0;//10*toRad;
+static float yaw = 3.1415;
 
-float vex,vey,vez;
-float pex,pey,pez;
-float P,Q,R;
+static float vex,vey,vez;
+static float pex,pey,pez;
+static float P,Q,R;
 
-float T;  // thrust
-float T_max = 10;
-float ctrl_left = 0;
-float ctrl_right = 0;
+static float T;  // thrust
+static float T_max = 10;
+static float ctrl_left = 0;
+static float ctrl_right = 0;
 sim_attitude arrow;
 void dynamic_control(uint16_t thrust,uint16_t servoL,uint16_t servoR)
 {
-    ctrl_left = (servoL - 1500)/500.0f;
+    ctrl_left  = (servoL - 1500)/500.0f;
     ctrl_right = (servoR - 1500)/500.0f;
     T = T_max*(thrust - 1000)/1000.0f;
 }
 
-
 void dynamic_loop(float dt){
+   HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_4);
     if(pre_run){
-        vex = 0;
-        vey = 0;
-        vez = 0;
-        pex = 0;
-        pey = 0;
-        pez = 0;
-        P   = 0;
-        Q   = 0;
-        Q   = 0;
-        alpha = 0;
-        beta = 0;
+        vex = 0, vey = 0,vez = 0;
+        pex = 0, pey = 0,pez = 0;
+        P   = 0, Q   = 0, R = 0;
+        alpha = 0, beta = 0;
         T    = 0;
         pre_run = 0;
         return;
@@ -163,7 +156,7 @@ void dynamic_loop(float dt){
     pey += vey*Dt + 0.5*accEy*Dt*Dt;
     pez += vez*Dt + 0.5*accEz*Dt*Dt;
 
-    arrow.lat = pex/eart_radius*toDeg + init_latitude;
+    arrow.lat= pex/eart_radius*toDeg + init_latitude;
     arrow.lon = pey/eart_radius*toDeg + init_longitude;
     arrow.alt = pez + init_altitude;
 
@@ -173,8 +166,8 @@ void dynamic_loop(float dt){
 
 
    
-    /* moment
-      -  <---- CH2 -----> +
+     // moment
+     /* -  <---- CH2 -----> +
                 +
                 |
                ch3
@@ -246,4 +239,3 @@ static float swap360(float val){
         val = 359;
     return val;
 }
-

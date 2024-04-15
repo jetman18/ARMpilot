@@ -23,7 +23,7 @@ float acc_Eframe[3];
 static const float Ki = 0;
 static const float Kp = 1;
 const float Dt_ahrs = 0.005f;
-float dcm[3][3];
+
 float acc_pitch;
 float acc_roll;
 
@@ -31,6 +31,8 @@ int16_t gyr_offs_x;
 int16_t gyr_offs_y;
 int16_t gyr_offs_z;
 static uint8_t isGyrocalibrated = FALSE;
+
+float a,b,c;
 
 //IMU configuration parameters
 imu_config_t config =
@@ -108,52 +110,6 @@ void imuCalibrate(){
 }
 
 
-/* Rotate vector use rotation matrix
- * Vector is rotated by DCM
- * Delta is euler angle (rad/s)
- */
-static void rotateB2E(faxis3_t *vector,faxis3_t delta)
-{
-    float mat[3][3];
-    float cosx, sinx, cosy, siny, cosz, sinz;
-    float coszcosx, sinzcosx, coszsinx, sinzsinx;
-	faxis3_t vec;
-    
-	float temp = config.dt*(float)(1e-06f)*RAD;
-	float angleX = delta.x*temp;
-	float angleY = delta.y*temp;
-	float angleZ = delta.z*temp;
-
-    cosx = cos_approx(angleX);
-    sinx = sin_approx(angleX);
-    cosy = cos_approx(angleY);
-    siny = sin_approx(angleY);
-    cosz = cos_approx(angleZ);
-    sinz = sin_approx(angleZ);
-
-    coszcosx = cosz * cosx;
-    sinzcosx = sinz * cosx;
-    coszsinx = sinx * cosz;
-    sinzsinx = sinx * sinz;
-
-    mat[0][0] = cosz * cosy;
-    mat[0][1] = -cosy * sinz;
-    mat[0][2] = siny;
-    mat[1][0] = sinzcosx + (coszsinx * siny);
-    mat[1][1] = coszcosx - (sinzsinx * siny);
-    mat[1][2] = -sinx * cosy;
-    mat[2][0] = (sinzsinx) - (coszcosx * siny);
-    mat[2][1] = (coszsinx) + (sinzcosx * siny);
-    mat[2][2] = cosy * cosx;
-
-    vec.x = vector->x * mat[0][0] + vector->y * mat[1][0] + vector->z * mat[2][0];
-    vec.y = vector->x * mat[0][1] + vector->y * mat[1][1] + vector->z * mat[2][1];
-    vec.z = vector->x * mat[0][2] + vector->y * mat[1][2] + vector->z * mat[2][2];
-   
-    vector->x =  vec.x;
-	vector->y =  vec.y;
-	vector->z =  vec.z;
-}
 /* Calculate euler angles from acceleration
  */
 void get_Acc_Angle(euler_t *m)
@@ -176,7 +132,9 @@ void get_Acc_Angle(euler_t *m)
 }
 
 
+
 void ahrs_update(){
+	static float q0=1,q1,q2,q3;
 	float norm;
 	float vx, vy, vz;
 	float ex, ey, ez;
@@ -184,14 +142,15 @@ void ahrs_update(){
 	float acc_Bframe[3];
 	float hx,hy,bx,bz;
     float wx,wy,wz,mx,my,mz;
-	float emx,emy,emz;
+	static float emx,emy,emz;
 	float accex,accey,accez;
-	static float q0=1,q1,q2,q3;
+	static float dcm[3][3];
+
 	axis3_t acce,mag;
     faxis3_t gyr;
 
 	gyro_read(&gyr);
-	gx = gyr.x * RAD;
+	gx = gyr.x * RAD ;
 	gy = gyr.y * RAD;
 	gz = gyr.z * RAD;
 
@@ -206,8 +165,8 @@ void ahrs_update(){
 		accey = acce.y * norm;
 		accez = acce.z * norm;
 
-		acc_pitch  =  atan2_approx(-accey,accez)*DEG;
-		acc_roll    = atan2_approx(-accex, (1/invSqrt_(accey * accey + accez * accez)))*DEG;
+		//acc_pitch  =  atan2_approx(-accey,accez)*DEG;
+		//acc_roll    = atan2_approx(-accex, (1/invSqrt_(accey * accey + accez * accez)))*DEG;
 /*
         if(USE_MAG && qmc_read_raw(&mag)){
 			norm = invSqrt_(mag.x * mag.x + mag.y * mag.y + mag.z * mag.z);
@@ -306,12 +265,17 @@ void ahrs_update(){
 	acc_Eframe[Z] = acc_Eframe[Z]*accTrueScale;
 	*/
     // Quaternion to euler angle    // deg 
-	AHRS.roll  = atan2_approx(-dcm[0][2],sqrtf(1 - dcm[0][2]*dcm[0][2]))*DEG;  // rad/s
-	AHRS.pitch = atan2_approx(-dcm[1][2],dcm[2][2])*DEG;;  // rad/s
-	AHRS.yaw  = atan2_approx(dcm[0][1],dcm[0][0])*DEG;;    // rad/s
-
-	AHRS.roll_rate  = gyr.x;    // deg/s
-	AHRS.pitch_rate = gyr.y;
-	AHRS.yaw_rate   = gyr.z;
+	AHRS.r  = atan2_approx(-dcm[0][2],sqrtf(1 - dcm[0][2]*dcm[0][2]))*DEG;  // rad/s
+	AHRS.p  = -atan2_approx(-dcm[1][2],dcm[2][2])*DEG;;  // rad/s
+	AHRS.y  = atan2_approx(dcm[0][1],dcm[0][0])*DEG;;    // rad/s
+	
+	AHRS.r_rate  = gyr.x;    // deg/s
+	AHRS.p_rate = gyr.y;
+	AHRS.y_rate   = gyr.z;
+	
+	AHRS.acc_x = dcm[0][2];
+	AHRS.acc_y = sqrtf(1 - dcm[0][2]*dcm[0][2]);
+	AHRS.acc_z = dcm[0][1];
+	
 }
 

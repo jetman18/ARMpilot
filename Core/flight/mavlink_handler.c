@@ -16,6 +16,7 @@ uint8_t sys_id,com_id;
 static UART_HandleTypeDef *uart;
 uint8_t buffer__[MAX_LENGHT];
 static int isTxcpl;
+uint32_t send_time_us;
 
 void mavlinkInit(uint8_t syss_id, uint8_t comm_id,UART_HandleTypeDef *uartt,uint32_t baudrate){
     isTxcpl = 1;
@@ -27,7 +28,6 @@ void mavlinkInit(uint8_t syss_id, uint8_t comm_id,UART_HandleTypeDef *uartt,uint
 	HAL_UART_Init(uartt);
 	HAL_UART_Receive_IT(uart, &data,1);
 }
-
 
 UART_HandleTypeDef *mavlink_uart_port(){
     return uart;
@@ -55,19 +55,24 @@ void mavlinkCallback(){
 
 
 void mavlink_send_attitude(float roll,float pitch, float yaw, float lat,float lon, float alt){
-	//if(isTxcpl){
+	if(isTxcpl){
 		uint32_t boot_time = millis();
 		mavlink_message_t msg_send;
         mavlink_msg_command_long_pack(sys_id,com_id,&msg_send,1,1,1,0,roll,pitch,yaw,lat,lon,alt,0);
 		uint16_t len = mavlink_msg_to_send_buffer(buffer__,&msg_send);
-		HAL_UART_Transmit(uart,buffer__,len,10);
+		HAL_UART_Transmit_DMA(uart,buffer__,len);
 
-	//	isTxcpl = 0;
-	//}
+		isTxcpl = 0;
+	}
 }
-
+/*
+ * 
+ */
+uint32_t temp;
 void mavlink_tx_cpl_callback()
-{
+{   
+	send_time_us = millis() - temp;
+	temp = millis();
 	isTxcpl = 1;
 }
 

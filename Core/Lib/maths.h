@@ -50,16 +50,18 @@
 #define CM_S_TO_MPH(centimetersPerSecond) ((centimetersPerSecond) * 10000 / 5080 / 88)
 
 #define MIN(a,b) \
-  __extension__ ({ __typeof__ (a) _a = (a); \
-  __typeof__ (b) _b = (b); \
-  _a < _b ? _a : _b; })
+ __extension__ ({ __typeof__ (a) _a = (a); \
+ __typeof__ (b) _b = (b); \
+ _a < _b ? _a : _b; })
 #define MAX(a,b) \
-  __extension__ ({ __typeof__ (a) _a = (a); \
-  __typeof__ (b) _b = (b); \
-  _a > _b ? _a : _b; })
+ __extension__ ({ __typeof__ (a) _a = (a); \
+ __typeof__ (b) _b = (b); \
+ _a > _b ? _a : _b; })
 #define ABS(x) \
   __extension__ ({ __typeof__ (x) _x = (x); \
   _x > 0 ? _x : -_x; })
+
+
 
 #define Q12 (1 << 12)
 
@@ -158,7 +160,7 @@ int16_t qPercent(fix12_t q);
 int16_t qMultiply(fix12_t q, int16_t input);
 fix12_t qConstruct(int16_t num, int16_t den);
 
-static inline int constrain(int amt, int low, int high)
+static int constrain(int amt, int low, int high)
 {
     if (amt < low)
         return low;

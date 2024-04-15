@@ -23,12 +23,12 @@ void pid_init(pid_t  *pid,float kp, float ki, float kd, float f_cut_D, float max
 float pid_cal(pid_t *pid,float input, float setpoint){
    if(pid->init){
        pid->last_input = input;
-       pid->init = 1;
+       pid->init = 0;
        return 0.0f;
    }
 
    float error = input - setpoint;
-   float output = error*pid->kd;
+   float output = error*pid->kp;
 
    if(pid->ki > 0){
       pid->i_term += error *pid->ki *pid->dt;
@@ -40,6 +40,7 @@ float pid_cal(pid_t *pid,float input, float setpoint){
         float RC = 1.0f / (2 *M_PIf *pid->f_cut_D);
         float gain_lpf = pid->dt/(RC + pid->dt);
         float delta =  (input - pid->last_input)*pid->kd;
+        pid->last_input = input;
         delta /= pid->dt;
         pid->D_filted += gain_lpf*(delta - pid->D_filted);
         output += pid->D_filted;
