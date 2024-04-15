@@ -15,4 +15,4 @@ Flight controller board design with proteus
 - SD card 
 - 24HCxx Epprom ic
 
-| <img align="left" src="./images/vct6pcb.jpg" alt="img-name" width="350" height="210">| <img align="left" src="./images/3dmode.png" alt="img-name" width="350" height="210"> |
+<img align="left" src="./images/vct6pcb.jpg" alt="img-name" width="350" height="210"> <img align="left" src="./images/3dmode.png" alt="img-name" width="350" height="210">
