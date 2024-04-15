@@ -1,5 +1,5 @@
-armpilot/simulation.o: ..\Core\simulation\simulation.c \
-  ..\Core\simulation\simulation.h \
+armpilot/attitudectrl.o: ..\Core\flight\attitudectrl.c \
+  ..\Core\flight\plane.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
   ..\Core\Inc\stm32f1xx_hal_conf.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h \
@@ -32,5 +32,8 @@ armpilot/simulation.o: ..\Core\simulation\simulation.c \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
-  ..\Core\Lib\maths.h C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h \
-  C:\Keil_v5\ARM\ARMCLANG\include\math.h ..\Core\Lib\utils.h
+  ..\Core\Lib\pid.h C:\Keil_v5\ARM\ARMCLANG\include\stdio.h \
+  ..\Core\Lib\imu.h ..\Core\Lib\axis.h ..\Core\Lib\maths.h \
+  C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h \
+  C:\Keil_v5\ARM\ARMCLANG\include\math.h ..\Core\Lib\pwmwrite.h \
+  ..\Core\Inc\tim.h ..\Core\Inc\main.h ..\Core\simulation\simulation.h

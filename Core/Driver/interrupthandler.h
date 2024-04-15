@@ -18,10 +18,10 @@ extern "C" {
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	// UART1 for GPS 
-    if(huart == HITL_uart_port())
-	{
-		HITL_callback();
-    }
+    //if(huart == HITL_uart_port())
+	//{
+	//	HITL_callback();
+    //}
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)

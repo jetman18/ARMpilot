@@ -30,11 +30,15 @@
 #define LOOP_FEQ 200
 
 enum{
-  HARD_REAL_TIME = 0,
-  SOFT_REAL_TIME,
+  Feq_200hz = 1,
+  Feq_100hz = 2,
+  Feq_50hz  = 4,
+  Feq_25hz  = 8,
+  Feq_10hz  = 10,
+  Feq_5hz   = 40,
 }RT_task;
 
-uint16_t slot_take_time_us[LOOP_FEQ];
+
 uint32_t max_excution_time_us;
 
 uint32_t num_tasks;
@@ -61,22 +65,21 @@ static void tongepin5()
 }
 
 static void mavlink(){
-   mavlink_send_control_cmd(AHRS.roll*0.011f,AHRS.pitch*0.011f,1);
+   //mavlink_send_control_cmd(AHRS.roll*0.011f,AHRS.pitch*0.011f,1);
    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
 }
 
 task_t task[]={ 
-   {ahrs_update,      0,0,0,1}, 
-	
-  //{pidUpdate,       0,0,0,1},
-
+   {ahrs_update,      0,0,0,Feq_200hz}, 
+#ifdef SIMULATION
+   {attitude_ctrl,    0,0,0,Feq_100hz},
+#endif
+   {tongepin5,          0,0,0,Feq_5hz}
+   //{pidUpdate,       0,0,0,1},
    //{hmc_get_raw,         0,0,0,3},
-  //{ms5611_start,         0,0,0,1},
-  //{hmc_get_raw,         0,0,0,10},   
-  // {tongepin13,         0,0,0,100},
-   {tongepin5,          0,0,0,20},
-   {tongepin4,          0,0,0,10} 
-  //{HITL_thread,         0,0,0,25} 
+   //{ms5611_start,         0,0,0,1},
+   //{hmc_get_raw,         0,0,0,10},   
+   // {tongepin13,         0,0,0,100},  
 };
 
 void init_scheduler(){
@@ -90,11 +93,15 @@ void init_scheduler(){
    timer_start(&htim7); // hardwave init
    //initPWM(&htim3);    // for pwm
     //HITL_init(&huart2);
-    mavlinkInit(22,10,&huart1,19200);
+    mavlinkInit(22,10,&huart1,115200);
 
   /*------sensor init----------*/ 
+#ifdef SIMULATION
+  attitude_ctrl_init();
+#endif
   mpu6050_init(&hi2c2); 
   imuCalibrate();     // calibrate mpu6050 
+
   //i2cDectect(&hi2c2); // mpu configure i2c bus pass through in oder to connect with hmc5883 
   //delay_ms(2000);     // wait a second after connected battery 
  
@@ -117,10 +124,6 @@ void start_scheduler() {
   static uint32_t timeUs;
   uint32_t time_1;
   uint32_t total_factor_excution_us = 0;
-  uint32_t total_ex_run = 0;
-  memset(slot_take_time_us,0,200);
-
-  uint32_t l = micros();
   for (int i = 0; i < num_tasks; i++){
       if((task[i].exec != NULL) && (counter % task[i].period == 0)){
         time_1 = micros();
@@ -133,7 +136,6 @@ void start_scheduler() {
       }
   }
   max_excution_time_us = total_factor_excution_us;
-  slot_take_time_us[counter] =  micros()- l;
   counter ++;
   if(counter ==  LOOP_FEQ)counter = 0;
   while((int)(micros() - timeUs) < loop_us);

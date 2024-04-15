@@ -54,14 +54,13 @@ void mavlinkCallback(){
 }
 
 
-void mavlink_send_control_cmd(float aile,float ele, float thrust){
+void mavlink_send_attitude(float roll,float pitch, float yaw, float lat,float lon, float alt){
 	//if(isTxcpl){
-	
 		uint32_t boot_time = millis();
 		mavlink_message_t msg_send;
-        mavlink_msg_command_long_pack(sys_id,com_id,&msg_send,1,1,1,0,aile,ele,thrust,0,0,0,0);
+        mavlink_msg_command_long_pack(sys_id,com_id,&msg_send,1,1,1,0,roll,pitch,yaw,lat,lon,alt,0);
 		uint16_t len = mavlink_msg_to_send_buffer(buffer__,&msg_send);
-		HAL_UART_Transmit(uart,buffer__,len,1000);
+		HAL_UART_Transmit(uart,buffer__,len,10);
 
 	//	isTxcpl = 0;
 	//}

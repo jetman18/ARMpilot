@@ -12,16 +12,17 @@ typedef struct pid{
 	float kp;
 	float ki;
 	float kd;
-	float I;
-	float pre_value;
+	float i_term;
+	float last_input;
 	float D_filted;
-	float max_I;
+	float I_range;
 	float f_cut_D;
-	uint32_t last_call_us;
-}pid__t;
-void initPid(pid__t  *pid,float kp, float ki, float kd, float f_cut_D, float maxI);
-float pidCalculate(pid__t *gain,float setpoint,float intput);
-void resetPID(pid__t *t);
+	float dt;
+	uint8_t init;
+}pid_t;
+void  pid_init(pid_t  *pid,float kp, float ki, float kd, float f_cut_D, float maxI,float dt);
+float pid_cal(pid_t *pid,float input, float setpoint);
+void  pid_reset(pid_t *t);
 #ifdef __cplusplus
 }
 #endif

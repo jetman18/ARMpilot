@@ -53,7 +53,6 @@ typedef struct{
     uint32_t dt;
     float gyr_lsb;
 }imu_config_t;
-extern attitude_t AHRS;
 void ahrs_update();
 void imuCalibrate();
 #ifdef __cplusplus

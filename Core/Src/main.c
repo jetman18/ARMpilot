@@ -27,8 +27,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-//#include "plane.h"
-#include "timer.h"
+#include "plane.h"
+//#include "timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,11 +60,11 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint32_t a,b;
-FIL fs_;
-FATFS _fs;
-uint8_t mount;
-int counttt;
+//uint32_t a,b;
+//FIL fs_;
+//FATFS _fs;
+//uint8_t mount;
+//int counttt;
 /* USER CODE END 0 */
 
 /**
@@ -109,10 +109,10 @@ int main(void)
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
 
-  timer_start(&htim7);
-   //main_loop();
-   mount = f_mount(&_fs,"", 1);
-   f_open(&fs_,"today.txt", FA_CREATE_ALWAYS | FA_WRITE | FA_READ);
+  //timer_start(&htim7);
+   main_loop();
+   //mount = f_mount(&_fs,"", 1);
+   //f_open(&fs_,"today.txt", FA_CREATE_ALWAYS | FA_WRITE | FA_READ);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -123,19 +123,19 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	 
-	  a = micros();
-	  f_puts("xin chao DMA 13/4/2024\n",&fs_);
-	  f_sync(&fs_);
-	  b= micros() - a;
-//	  	
-	  if(mount != FR_OK){
-	      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
-	  }
-	  else{
-	      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-	  }
+//	  a = micros();
+//	  f_puts("xin chao DMA 13/4/2024\n",&fs_);
+//	  f_sync(&fs_);
+//	  b= micros() - a;
+////	  	
+//	  if(mount != FR_OK){
+//	      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
+//	  }
+//	  else{
+//	      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+//	  }
 
-	  HAL_Delay(100);
+//	  HAL_Delay(100);
 
   }
   /* USER CODE END 3 */

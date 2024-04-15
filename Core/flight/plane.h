@@ -4,6 +4,9 @@
 extern "C" {
 #endif
 #include "stm32f1xx_hal.h"
+#define SIMULATION
+// attitude controll
+
 
 // navigation
 extern uint16_t autopilot_stick;
@@ -16,12 +19,11 @@ void mavlinkInit(uint8_t syss_id, uint8_t comm_id,UART_HandleTypeDef *uartt,uint
 UART_HandleTypeDef *mavlink_uart_port();
 void mavlinkCallback();
 void mavlink_tx_cpl_callback();
-void mavlink_send_control_cmd(float aile,float ele, float thrust);
+void mavlink_send_attitude(float roll,float pitch, float yaw, float lat,float lon, float alt);
 
-// controller
-void pitchRollControl(float target_roll,float target_pitch);
-void setPIDgain(int axis,float kp,float ki,float kd);
-
+// attitude contrller
+void attitude_ctrl();
+void attitude_ctrl_init();
 // mainloop
 void main_loop();
 #ifdef __cplusplus

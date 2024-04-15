@@ -1,14 +1,31 @@
-#ifndef SIMULATION_H
-#define SIMULATION_H
+#ifndef DYNAMIC_H
+#define DYNAMIC_H
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include "usart.h"
+#include "stm32f1xx_hal.h"
+typedef struct dynamic_mode
+{
+    float roll;
+    float pitch;
+    float yaw;
 
-void HITL_init(UART_HandleTypeDef *huart);
-UART_HandleTypeDef* HITL_uart_port();
-void HITL_callback();
+    float roll_rate;
+    float pitch_rate;
+    float yaw_rate;
+
+    int32_t lat;
+    int32_t lon;
+    uint32_t alt;
+
+    float velocity;
+}sim_attitude;
+
+
+void dynamic_control(uint16_t thrust,uint16_t servoL,uint16_t servoR);
+void dynamic_loop(float dt);
+
 #ifdef __cplusplus
 }
 #endif

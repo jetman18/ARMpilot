@@ -38,5 +38,4 @@ armpilot/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Middlewares\Third_Party\FatFs\src\diskio.h \
   ..\Middlewares\Third_Party\FatFs\src\drivers\sd_diskio.h \
   ..\Core\Inc\i2c.h ..\Core\Inc\sdio.h ..\Core\Inc\tim.h \
-  ..\Core\Inc\usart.h ..\Core\Inc\gpio.h ..\Core\Lib\timer.h \
-  C:\Keil_v5\ARM\ARMCLANG\include\stdio.h
+  ..\Core\Inc\usart.h ..\Core\Inc\gpio.h ..\Core\flight\plane.h

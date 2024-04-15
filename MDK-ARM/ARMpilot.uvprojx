@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../Core/Driver;../Core/flight;../Core/Lib;../Core/mavlink;../Core/mavlink/common;../FATFS/Target;../FATFS/App;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/FatFs/src/drivers;../Core/simulation;../Core/simulation/dynamic</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../Core/Driver;../Core/flight;../Core/Lib;../Core/mavlink;../Core/mavlink/common;../FATFS/Target;../FATFS/App;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/FatFs/src/drivers;../Core/simulation</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -596,11 +596,6 @@
           <GroupName>flight</GroupName>
           <Files>
             <File>
-              <FileName>controller.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\flight\controller.c</FilePath>
-            </File>
-            <File>
               <FileName>estimate.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\flight\estimate.c</FilePath>
@@ -635,6 +630,11 @@
               <FileType>5</FileType>
               <FilePath>..\Core\flight\scheduler.h</FilePath>
             </File>
+            <File>
+              <FileName>attitudectrl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\flight\attitudectrl.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -649,16 +649,6 @@
               <FileName>simulation.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Core\simulation\simulation.h</FilePath>
-            </File>
-            <File>
-              <FileName>dynamic_mode.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\simulation\dynamic\dynamic_mode.c</FilePath>
-            </File>
-            <File>
-              <FileName>dynamic_mode.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Core\simulation\dynamic\dynamic_mode.h</FilePath>
             </File>
           </Files>
         </Group>

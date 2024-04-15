@@ -11,7 +11,7 @@ float max_pid_value = 1000;
 static float max_tilt_angle = 45;  
 static float max_intergal_value =  200;
 static float Dt = 0.004f;
-
+extern attitude_t AHRS; 
 uint16_t pitch_cmd,roll_cmd;
 
 /*------Roll------------------*/
