@@ -2,8 +2,7 @@
 Flight controller design for fixed-wing uav
 ## Hardware
 Flight controller board design with proteus
-- 5v operation
-- 2 port uart
+- 3 port uart
 - 1 port I2C
 - 6 pin PWM output
 - 9 pin GPIO
@@ -11,7 +10,6 @@ Flight controller board design with proteus
 - mpu-6050
 - hmc-5883 magnetic sensor
 - ms-5611  baro
-- 2x ms40xx pressure sensor for Pitot
 - SD card 
 - 24HCxx Epprom ic
 
