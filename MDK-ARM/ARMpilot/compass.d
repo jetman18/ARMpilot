@@ -33,7 +33,15 @@ armpilot/compass.o: ..\Core\Lib\compass.c \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
   ..\Core\Lib\compass.h ..\Core\Driver\hmc5883.h \
   ..\Core\Driver\..\lib\axis.h C:\Keil_v5\ARM\ARMCLANG\include\stdio.h \
+  ..\Core\Lib\blackbox.h ..\FATFS\App\fatfs.h \
+  ..\Middlewares\Third_Party\FatFs\src\ff.h \
+  ..\Middlewares\Third_Party\FatFs\src\integer.h \
+  ..\FATFS\Target\ffconf.h ..\Core\Inc\main.h \
+  ..\FATFS\Target\bsp_driver_sd.h \
+  ..\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h \
+  ..\Middlewares\Third_Party\FatFs\src\diskio.h \
+  ..\Middlewares\Third_Party\FatFs\src\drivers\sd_diskio.h \
   ..\Core\Lib\maths.h C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h \
   C:\Keil_v5\ARM\ARMCLANG\include\math.h ..\Core\Inc\i2c.h \
-  ..\Core\Inc\main.h ..\Core\Lib\timer.h ..\Core\Inc\gpio.h \
-  ..\Core\Lib\faulthandler.h C:\Keil_v5\ARM\ARMCLANG\include\string.h
+  ..\Core\Lib\timer.h ..\Core\Inc\gpio.h ..\Core\Lib\faulthandler.h \
+  C:\Keil_v5\ARM\ARMCLANG\include\string.h ..\Core\Lib\axis.h

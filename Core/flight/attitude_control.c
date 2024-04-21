@@ -3,42 +3,40 @@
 #include "imu.h"
 #include "maths.h"
 #include "pwmwrite.h"
+#define loop_s 0.02 // 100h
+
 
 #ifdef SIMULATION
-#include "simulation.h"
-extern sim_attitude arrow;
 extern attitude_t AHRS;
+#include "simulation.h"
+   extern sim_attitude arrow;
 #else
 extern attitude_t AHRS;
 #endif
-#define loop_s 0.02 // 100hz
+
 
 static pid_t roll_rate,pitch_rate,yaw_rate;
-static pid_t roll_,pitch_,yaw_;
-static float velocity;
-float roll_cmd,pitch_cmd;
-static float kenh2,kenh3;
+static pid_t roll_angle,pitch_angle,yaw_angle;
+
 
 void attitude_ctrl_init(){
    // init pid 
-   pid_init(&roll_rate,1,0,1,100,100,loop_s);
-   pid_init(&roll_,3,0,0,100,100,loop_s);
+   pid_init(&roll_rate,2,0,0,100,100,loop_s);
+   pid_init(&roll_angle,10,0,0,100,100,loop_s);
 
-   pid_init(&pitch_rate,3,0,2,100,100,loop_s);
-   pid_init(&pitch_,3,0,0,100,100,loop_s);
+   pid_init(&pitch_rate,4,0,0,100,100,loop_s);
+   pid_init(&pitch_angle,10,0,0,100,100,loop_s);
 
    //pid_init(&yaw_rate,0,0,0,20,100,loop_s);
-   //pid_init(&yaw_,0,0,0,20,100,loop_s);
+   //pid_init(&yaw_angle,0,0,0,20,100,loop_s);
 
 }
 
 // 100 hz
 void attitude_ctrl(){ 
-	
-
     float roll_r,pitch_r,yaw_r;
-    float roll,pitch,yaw;
-
+    float roll,pitch,yaw,velocity;
+    
 #ifdef SIMULATION
     roll_r = arrow.roll_rate;
     pitch_r = arrow.pitch_rate;
@@ -57,11 +55,11 @@ void attitude_ctrl(){
 #endif
 	
     // roll axis
-    float r_angle_pid = pid_cal(&roll_,roll,AHRS.r);
-    float r_rate_pid  = pid_cal(&roll_rate,r_angle_pid,roll_r);
+    float r_angle_pid = pid_cal(&roll_angle,roll,AHRS.roll);
+    float r_rate_pid  = -pid_cal(&roll_rate,-roll_r,r_angle_pid);
     //pitch axis
-    float p_angle_pid = pid_cal(&pitch_,pitch,AHRS.p);
-    float p_rate_pid  = pid_cal(&pitch_rate,p_angle_pid,pitch_r);
+    float p_angle_pid = pid_cal(&pitch_angle,pitch,AHRS.pitch);
+    float p_rate_pid  = -pid_cal(&pitch_rate,-pitch_r,p_angle_pid);
 
 	float scale_pid = 900.0f/MAX(900,velocity*velocity);
 
@@ -75,8 +73,8 @@ void attitude_ctrl(){
 //#define MANUAL_CTRL
 
 #ifdef MANUAL_CTRL
-    float ch2 = AHRS.r/50;
-	float ch3 = AHRS.p/50;
+    float ch2 = AHRS.roll/50;
+	float ch3 = AHRS.ppitch/50;
 
     ch2 = 0.5*pow(ch2,3) + 0.15*ch2;
     ch3 = 0.5*pow(ch3,3) + 0.15*ch3; 

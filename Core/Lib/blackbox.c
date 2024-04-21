@@ -1,4 +1,3 @@
-
 #include "fatfs.h"
 #include "string.h"
 #include "timer.h"
@@ -22,7 +21,6 @@ static int Float_to_string(float f, uint8_t places, char strOut[]);
 /*
  * init black box
  */
- 
 int black_box_init(){
     isSdcard_valid = 0;
     uint8_t mount = f_mount(&_fs,"", 1);
@@ -34,7 +32,6 @@ int black_box_init(){
     return 0;
 }
 
-
 int black_box_create_file(black_box_file_t *fs,char *file_name){
    if(isSdcard_valid){
        return 0;
@@ -45,14 +42,13 @@ int black_box_create_file(black_box_file_t *fs,char *file_name){
     if(open == FR_OK){
         return 0;
     }
- 
+   
    return -1;
 }
- 
+
 /*  read data
  *  
  */
-
 
 int black_box_read(black_box_file_t *fs, char *file_name, char *bufferr,uint8_t len)
 {
@@ -71,7 +67,6 @@ int black_box_read(black_box_file_t *fs, char *file_name, char *bufferr,uint8_t 
 /*
  *  Description: Convert a float number to string and write to buffer
  */
- 
 void black_box_pack_float(black_box_file_t *fs,float val,uint8_t digit_after_point ){
     // do not write anything if sd card not valid
     if(isSdcard_valid)
@@ -96,8 +91,6 @@ void black_box_pack_float(black_box_file_t *fs,float val,uint8_t digit_after_poi
  *  Description: Convert a integer number to string and write to buffer
  *  Input (int type [-2147483647 2147483647] )
  */
- 
- 
 void black_box_pack_int(black_box_file_t *fs,int val){
     if(isSdcard_valid){
         return;
@@ -119,7 +112,10 @@ void black_box_pack_int(black_box_file_t *fs,int val){
 		}
 	}
 	else{
+	   fs->buffer[fs->buffer_index] ='0';
 	   len_str = 1;
+	   fs->buffer_index ++;
+		return;
 	}
 	// copy str to buffer
 	int str_idx = 0;
@@ -145,12 +141,9 @@ void black_box_pack_int(black_box_file_t *fs,int val){
 	}
 }
 
-
 /*
  * Description: Write str to buffer
  */
- 
- 
 void black_box_pack_str(black_box_file_t *fs,const char *c){
     if(isSdcard_valid){
         return;
@@ -167,20 +160,18 @@ void black_box_pack_str(black_box_file_t *fs,const char *c){
     fs->buffer_index += i;
 }
 
-
-
 /*
  * Description: Write buffer to sd card
  */
- 
- 
 void black_box_load(black_box_file_t *fs)
  {
       if(isSdcard_valid)
 		  return;
       f_puts(fs->buffer,&fs->file);
+
       memset(fs->buffer,0,sizeof(fs->buffer));
       fs->buffer_index = 0;
+
     
  }
 
@@ -188,7 +179,6 @@ void black_box_load(black_box_file_t *fs)
 /*
  * Description: sync file
  */
- 
 void black_box_sync(black_box_file_t *fs)
  { 
 	 if(isSdcard_valid)
@@ -199,8 +189,6 @@ void black_box_sync(black_box_file_t *fs)
 /*
  * Description: close file
  */
- 
- 
 void black_box_close(black_box_file_t *fs)
  {    
 	 if(isSdcard_valid)
@@ -211,8 +199,6 @@ void black_box_close(black_box_file_t *fs)
 /*
  * Description: get buffer length
  */
-
- 
  uint16_t black_box_get_buffer_lenght(const black_box_file_t *fs)
  {
      return fs->buffer_index;
@@ -221,8 +207,6 @@ void black_box_close(black_box_file_t *fs)
 /*
  * get total space
  */
- 
- 
 uint32_t black_box_get_total_space()
  {
      f_getfree("", &fre_clust, &pfs);
@@ -232,7 +216,6 @@ uint32_t black_box_get_total_space()
  /*
   * get free space
   */
-  
 uint32_t black_box_get_free_space()
  {
      f_getfree("", &fre_clust, &pfs);
@@ -301,6 +284,7 @@ static int Float_to_string(float f, uint8_t places, char strOut[])
     length = 0;  // Size of decimal part
     length2 = 0; // Size of tenth
 
+    /* Calculate length2 tenth part */
     while( (number2 - (float)number) != 0.0 && !((number2 - (float)number) < 0.0)  && (length2 < places))
     {
          number2 = f * (n_tu(10.0, length2 + 1));
@@ -309,7 +293,7 @@ static int Float_to_string(float f, uint8_t places, char strOut[])
          length2++;
     }
 
-  
+    /* Calculate length decimal part */
     for (length = (f > 1) ? 0 : 1; f > 1; length++)
         f /= 10;
 
@@ -341,4 +325,3 @@ static int Float_to_string(float f, uint8_t places, char strOut[])
     }
     return length;
 }
-

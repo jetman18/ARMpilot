@@ -20,9 +20,10 @@ static float range180(float val){
     return val;
 }
 
-
 static int zeroSet(){
     return 0L;
 }
+
+#define Feq2Sec(F) (1.0f/F)
 
 #endif

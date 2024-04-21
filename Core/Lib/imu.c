@@ -9,42 +9,34 @@
 #include "mpu6050.h"
 #include "hmc5883.h"
 #include "i2c.h"
+#include "config.h"
+#include "utils.h"
 //#define SPI
 #define ACCSMOOTH
 #define OFFSET_CYCLE  1000
 #define USE_MAG 0
-//Program Size: Code=37282 RO-data=1746 RW-data=108 ZI-data=4340  
-//Program Size: Code=37294 RO-data=1946 RW-data=108 ZI-data=4340  
+
 attitude_t AHRS;
 float integralFBx;
 float integralFBy;
 float integralFBz;
 float acc_Eframe[3];
 static const float Ki = 0;
-static const float Kp = 1;
-const float Dt_ahrs = 0.005f;
-
-float acc_pitch;
-float acc_roll;
-
+static const float Kp = 2;
+const float Dt_ahrs = 0.01;
+// calibration 
 int16_t gyr_offs_x;
 int16_t gyr_offs_y;
 int16_t gyr_offs_z;
 static uint8_t isGyrocalibrated = FALSE;
 
-float a,b,c;
-
 //IMU configuration parameters
-imu_config_t config =
-{
+imu_config_t config ={
   .gyro_f_cut =100,
   .acc_f_cut = 100,
-  .cpl_gain = 0.0001f,
-  .gyro_slew_threshold=0,
-  .acc_slew_threshold=0,
-  .dt = 4000, //us
   .gyr_lsb = 32.8f
 };
+
 
 static void normalizeV(axis3_t *src)
 {
@@ -61,13 +53,11 @@ static void normalizeV(axis3_t *src)
 static void gyro_read(faxis3_t *angle){
 	axis3_t p;
 	static float gyro_v[3];
-
-	if(isGyrocalibrated == TRUE){
+	if(isGyrocalibrated){
 		mpu6050_gyro_get_raw(&p);
         
 		float RC = 1.0f / (2 *M_PIf *config.gyro_f_cut);
-		float temp = (float)config.dt*(1e-06f);
-		float gain_lpf =temp / (RC + temp);
+		float gain_lpf = Dt_ahrs / (RC + Dt_ahrs);
         
 		p.x -= gyr_offs_x;
 		p.y -= gyr_offs_y;
@@ -93,7 +83,7 @@ static void gyro_read(faxis3_t *angle){
 
 
 static int32_t store_gyro[3];
-void imuCalibrate(){
+void imu_calibrate(){
 	axis3_t gyro_;
 	for(int i = 0;i < OFFSET_CYCLE; i++){
 		mpu6050_gyro_get_raw(&gyro_);
@@ -131,9 +121,9 @@ void get_Acc_Angle(euler_t *m)
 	m->roll   = atan2_approx(-acc.x, (1/invSqrt_(acc.y * acc.y + acc.z * acc.z)))*180/M_PIf;
 }
 
-
-
-void ahrs_update(){
+axis3_t mag;
+// mahony filter
+void imu_update_ahrs(){
 	static float q0=1,q1,q2,q3;
 	float norm;
 	float vx, vy, vz;
@@ -145,19 +135,25 @@ void ahrs_update(){
 	static float emx,emy,emz;
 	float accex,accey,accez;
 	static float dcm[3][3];
+	float P,Q,R;
 
-	axis3_t acce,mag;
+	axis3_t acce;
     faxis3_t gyr;
+	hmc_get_raw(&mag);
 
 	gyro_read(&gyr);
-	gx = gyr.x * RAD ;
+	gx = gyr.x * RAD;
 	gy = gyr.y * RAD;
 	gz = gyr.z * RAD;
 
+	P =  gy;
+	Q =  gx;
+	R = -gz;
+
 	mpu6050_acc_get_raw(&acce);
-	//acc_Bframe[X] = (float)acce.x;
-	//acc_Bframe[Y] = (float)acce.y;
-	//acc_Bframe[Z] = (float)acce.z;
+	acc_Bframe[X] = (float)acce.x;
+	acc_Bframe[Y] = (float)acce.y;
+    acc_Bframe[Z] = (float)acce.z;
 
 	if(!((acce.x == 0) && (acce.y == 0) && (acce.z == 0))) {
 		norm = invSqrt_(acce.x * acce.x + acce.y * acce.y + acce.z * acce.z);
@@ -165,10 +161,8 @@ void ahrs_update(){
 		accey = acce.y * norm;
 		accez = acce.z * norm;
 
-		//acc_pitch  =  atan2_approx(-accey,accez)*DEG;
-		//acc_roll    = atan2_approx(-accex, (1/invSqrt_(accey * accey + accez * accez)))*DEG;
 /*
-        if(USE_MAG && qmc_read_raw(&mag)){
+        if(USE_MAG && hmc_get_raw(&mag)){
 			norm = invSqrt_(mag.x * mag.x + mag.y * mag.y + mag.z * mag.z);
 			mx = mag.x * norm;
 			my = mag.y * norm;
@@ -255,7 +249,7 @@ void ahrs_update(){
 	dcm[2][2] = 2.0f*(0.5f - q1q1 - q2q2);
 	
     // Rotate acceleration from Body frame to earth frame
-	/*
+
 	acc_Eframe[X] = dcm[0][0]*acc_Bframe[X] + dcm[1][0]*acc_Bframe[Y] + dcm[2][0]*acc_Bframe[Z];
 	acc_Eframe[Y] = dcm[0][1]*acc_Bframe[X] + dcm[1][1]*acc_Bframe[Y] + dcm[2][1]*acc_Bframe[Z];
 	acc_Eframe[Z] = dcm[0][2]*acc_Bframe[X] + dcm[1][2]*acc_Bframe[Y] + dcm[2][2]*acc_Bframe[Z];
@@ -263,19 +257,25 @@ void ahrs_update(){
 	acc_Eframe[X] = acc_Eframe[X]*accTrueScale;
 	acc_Eframe[Y] = acc_Eframe[Y]*accTrueScale;
 	acc_Eframe[Z] = acc_Eframe[Z]*accTrueScale;
-	*/
-    // Quaternion to euler angle    // deg 
-	AHRS.r  = atan2_approx(-dcm[0][2],sqrtf(1 - dcm[0][2]*dcm[0][2]))*DEG;  // rad/s
-	AHRS.p  = -atan2_approx(-dcm[1][2],dcm[2][2])*DEG;;  // rad/s
-	AHRS.y  = atan2_approx(dcm[0][1],dcm[0][0])*DEG;;    // rad/s
+
+    // Dcm to euler angle in rad
+	float roll_rad = atan2_approx(-dcm[0][2],sqrtf(1 - dcm[0][2]*dcm[0][2])); 
+	float pitch_rad = -atan2_approx(-dcm[1][2],dcm[2][2]);
+	float yaw_rad = -atan2_approx(dcm[0][1],dcm[0][0]);   
 	
-	AHRS.r_rate  = gyr.x;    // deg/s
-	AHRS.p_rate = gyr.y;
-	AHRS.y_rate   = gyr.z;
+	float cosx = cos_approx(roll_rad);
+	float sinx = sin_approx(roll_rad);
+	float cosy = cos_approx(pitch_rad);
+	float tany = tan_approx(pitch_rad);
 	
-	AHRS.acc_x = dcm[0][2];
-	AHRS.acc_y = sqrtf(1 - dcm[0][2]*dcm[0][2]);
-	AHRS.acc_z = dcm[0][1];
-	
+	// Body rate to euler rate (Deg/s)
+    AHRS.roll_rate  = (P + R*cosx*tany + Q*sinx*tany)*DEG;
+    AHRS.pitch_rate = (Q*cosx - R*sinx)*DEG;
+    AHRS.yaw_rate   = (R*cosx/cosy + Q*sinx/cosy)*DEG;
+
+	AHRS.roll  = roll_rad*DEG;  
+	AHRS.pitch = pitch_rad*DEG;
+	AHRS.yaw   = yaw_rad*DEG;
+		
 }
 

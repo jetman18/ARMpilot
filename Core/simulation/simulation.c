@@ -66,7 +66,6 @@ void dynamic_control(uint16_t thrust,uint16_t servoL,uint16_t servoR)
 }
 
 void dynamic_loop(float dt){
-   HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_4);
     if(pre_run){
         vex = 0, vey = 0,vez = 0;
         pex = 0, pey = 0,pez = 0;

@@ -15,17 +15,13 @@ typedef struct {
 }quaternion_t;
 
 typedef struct{
-    float r;
-	  float p;
-    float y;
+    float roll;
+	float pitch;
+    float yaw;
 
-    float r_rate;
-    float p_rate;
-    float y_rate;
-
-    float acc_x;
-    float acc_y;
-    float acc_z;
+    float roll_rate;
+    float pitch_rate;
+    float yaw_rate;
 }attitude_t;
 
 typedef struct{
@@ -47,14 +43,12 @@ typedef struct{
 typedef struct{
     float gyro_f_cut;
     float acc_f_cut;
-    float cpl_gain;
-    float gyro_slew_threshold;
-    float acc_slew_threshold;
-    uint32_t dt;
     float gyr_lsb;
 }imu_config_t;
-void ahrs_update();
-void imuCalibrate();
+
+void imu_update_ahrs();
+void imu_calibrate();
+
 #ifdef __cplusplus
 }
 #endif

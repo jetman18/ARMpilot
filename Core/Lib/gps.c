@@ -16,7 +16,6 @@
 #define UBLOX_BUFFER_SIZE 200
 #define ONE_BYTE  1
 
-
 /* Using Ubx protocol
 * 
 */
@@ -143,7 +142,6 @@ UART_HandleTypeDef *_gpsUartPort;
 static uint8_t _char;
 uint32_t _therad_read_time_ms;
 // State machine state
-static uint8_t _step;
 static uint8_t _msg_id;
 uint16_t _payload_length;
 uint16_t _payload_counter;
@@ -162,27 +160,10 @@ static uint8_t newdata(uint8_t data);
 static uint8_t parse_msg();
 
 
-// return fix type
-uint8_t getFix()
-{
-    return _gps.fix;
-}
-
-// return number of satellite
-uint8_t  getSat()
-{
-    return _gps.numSat;
-}
-
-// return position update time
-uint32_t getUpdateTime()
-{
-    return _gps.posUpdateTime;
-}
 /*  
  * Init function 
  */
-void gpsInit(UART_HandleTypeDef *uart,uint32_t baudrate)
+void gps_init(UART_HandleTypeDef *uart,uint32_t baudrate)
 {
 	_gpsUartPort = uart;
     _gps.timer_ = millis();
@@ -190,15 +171,14 @@ void gpsInit(UART_HandleTypeDef *uart,uint32_t baudrate)
     _payload_length = 0;
     _payload_counter = 0;
     _msg_id = 0;
-    _step = 0;
 
     // Configuration _gps module
     HAL_UART_Transmit(_gpsUartPort,ubloxInit,sizeof(ubloxInit),1000);
-    //delay_ms(10);
+    HAL_Delay(10);
     HAL_UART_Transmit(_gpsUartPort,ubloxSbasInit,sizeof(ubloxSbasInit),1000);
-    //delay_ms(10);
+    HAL_Delay(10);
     HAL_UART_Transmit(_gpsUartPort,uart57600,sizeof(uart57600),1000);
-    //delay_ms(10);
+    HAL_Delay(10);
     // set baudrate
     _gpsUartPort->Init.BaudRate = baudrate;
 	HAL_UART_Init(_gpsUartPort); 
@@ -207,13 +187,17 @@ void gpsInit(UART_HandleTypeDef *uart,uint32_t baudrate)
 	HAL_UART_Receive_IT(_gpsUartPort, &_char,ONE_BYTE);
 }
 
+UART_HandleTypeDef *gps_uart_port(){
+    return _gpsUartPort;
+}
+
 
 /*
  * Read data from loop
  */
 const uint32_t thread_timeout_us = 500; // timeout 500us
 const uint32_t thread_max_wait_time_us = 1000; // timeout 500us
-void gpsThread(){
+void gps_thread(){
     uint32_t current_time_ms = millis();
     while(1)
     {
@@ -237,36 +221,13 @@ void gpsThread(){
 /* 
  * REad gps by using interrup
  */
-void gpsCallback()
+
+void gps_callback()
 {
    // parse data
    newdata(_char);
-   // read again
    HAL_UART_Receive_IT(_gpsUartPort, &_char,ONE_BYTE);
 }
-
-
-void write_to_blackbox(){
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -351,11 +312,11 @@ static uint8_t parse_msg(){
 }
 
 
-static uint8_t newdata(uint8_t data)
-{
+static uint8_t newdata(uint8_t data){
     uint8_t parsed = FALSE;
     static uint8_t _ck_a;
     static uint8_t _ck_b;
+    static uint8_t _step = 0;
     uint32_t current_time_ms = millis();
     switch (_step) {
         case 0: // Sync char 1 (0xB5)
@@ -407,9 +368,11 @@ static uint8_t newdata(uint8_t data)
         case 8:
             _step = 0;
             if (_ck_b != data)
-                break;            
+                break;   
+			
             if (parse_msg())
             {
+
                 _therad_read_time_ms = millis() - current_time_ms;
                 parsed = TRUE;
             }

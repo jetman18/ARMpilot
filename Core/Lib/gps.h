@@ -6,10 +6,9 @@ extern "C" {
 #endif
 #include "stm32f1xx_hal.h"
 
-
 typedef struct{
-    int32_t   position[2];
-    int32_t   velocity[3];
+    int32_t   position[2]; // *10^7
+    int32_t   velocity[3]; //  cm
     int32_t   Gspeed;
 
     int32_t   speedAccuracy;
@@ -24,12 +23,10 @@ typedef struct{
     uint8_t   numSat;
     uint8_t   fix;
 }gpsData_t;
-
-void gpsInit(UART_HandleTypeDef *uartt,uint32_t baudrate);
-void gpsCallback(void);
-uint8_t getSat();
-uint8_t  getFix();
-uint32_t getUpdateTime();
+extern gpsData_t _gps;
+UART_HandleTypeDef *gps_uart_port();
+void gps_init(UART_HandleTypeDef *uartt,uint32_t baudrate);
+void gps_callback(void);
 #ifdef __cplusplus
 }
 #endif

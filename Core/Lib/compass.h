@@ -7,8 +7,6 @@ extern "C" {
 
 void compassInit();
 
-
-
 #ifdef __cplusplus
 }
 #endif

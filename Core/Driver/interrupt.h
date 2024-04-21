@@ -17,11 +17,13 @@ extern "C" {
 //----------------------------------IQR--Handler-----------------------------
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	// UART1 for GPS 
-//    if(huart == mavlink_uart_port())
-//	{
-//		mavlink_tx_cpl_callback();
-//    }
+    if(huart == ibus_uart_port())
+	{
+		ibus_calback();
+    }
+    else if(huart == gps_uart_port()){
+        gps_callback();
+    }
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)

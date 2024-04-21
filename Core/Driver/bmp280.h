@@ -119,8 +119,7 @@ typedef struct {
 
 } BMP280_HandleTypedef;
 
-extern float bmp280_altitude;
-extern float bmp280_velocity;
+extern int bmp280_altitude;
 
 /**
  * Initialize BMP280 module, probes for the device, soft resets the device,
@@ -133,7 +132,7 @@ extern float bmp280_velocity;
  *
  * This may be called again to soft reset the device and initialize it again.
  */
-bool bmp280_init();
+bool bmp280_init(I2C_HandleTypeDef* i2c);
 
 
 

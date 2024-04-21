@@ -3,38 +3,84 @@
 #include "timer.h"
 
 #define IBUS_BUFFSIZE 32
-#define IBUS_MAX_CHANNEL 8
 #define IBUS_SYNCBYTE 0x20
 #define FALSE 0
 #define TRUE 1
 
+#define DMA_MODE
+
 static int ibusFrameDone = FALSE;
-static uint32_t ibusChannelData[IBUS_MAX_CHANNEL];
+uint32_t ibusChannelData[IBUS_MAX_CHANNEL];
 static uint8_t ibus[IBUS_BUFFSIZE] = {0, };
 static uint8_t rx_buff;
 static UART_HandleTypeDef *uart;
-static uint32_t delta_t;
 
-void ibusInit(UART_HandleTypeDef *uartt,uint32_t baudrate)
+#ifdef DMA_MODE
+static uint8_t buffer_dma[2*IBUS_BUFFSIZE];
+static uint8_t is_receive_cpl;
+#endif
+
+
+static void ibusDataReceive(uint8_t c);
+static int ibusFrameComplete(void);
+
+
+void ibus_init(UART_HandleTypeDef *uartt,uint32_t baudrate)
 {
 	uart = uartt;
     uartt->Init.BaudRate = baudrate;
 	HAL_UART_Init(uartt);
+#ifdef DMA_MODE
+    is_receive_cpl = 0;
+	HAL_UART_Receive_DMA(uart,buffer_dma,2*IBUS_BUFFSIZE);
+#else 
 	HAL_UART_Receive_IT(uart, &rx_buff,1);
+#endif
 }
 
-void ibusGet(){
-    if(ibusFrameComplete()){
-
-     }
+UART_HandleTypeDef *ibus_uart_port(){
+   return uart;
 }
 
 
-//callback
-void ibusDataReceive(uint8_t c)
+#define MAX_WAITTIME 100 //ms
+static uint32_t p_time;
+void ibus_run(){
+    // check if tx disconnect
+	if( (millis() - p_time) >  MAX_WAITTIME){
+	    ibusChannelData[2] = 1000; // throtlle
+		ibusChannelData[5] = 2000; // arm 
+	}
+#ifdef DMA_MODE
+   if(is_receive_cpl){
+	 
+	int buffer_index = 0; 
+	while(buffer_index < 2*IBUS_BUFFSIZE){
+		ibusDataReceive(buffer_dma[buffer_index]);
+		buffer_index ++;
+	}  
+	ibusFrameComplete();
+	is_receive_cpl = 0;
+   }
+#else 
+   ibusFrameComplete();
+#endif
+}
+
+void ibus_calback(){
+	p_time = millis();
+#ifdef DMA_MODE
+	is_receive_cpl = 1;
+#else 
+	ibusDataReceive(rx_buff);
+    HAL_UART_Receive_IT(uart, &rx_buff,1);
+#endif
+
+}
+
+static void ibusDataReceive(uint8_t c)
 {
     uint32_t ibusTime;
-    static uint32_t p_time;
     static uint32_t ibusTimeLast;
     static uint8_t ibusFramePosition;
 
@@ -52,15 +98,14 @@ void ibusDataReceive(uint8_t c)
 
     if (ibusFramePosition == IBUS_BUFFSIZE - 1) {
         ibusFrameDone = TRUE;
-        delta_t = micros() - p_time;
-        p_time  = micros();
     } else {
         ibusFramePosition++;
     }
 }
 
-int ibusFrameComplete(void)
+static int ibusFrameComplete(void)
 {
+	
     uint8_t i;
     uint16_t chksum, rxsum;
 
@@ -83,19 +128,12 @@ int ibusFrameComplete(void)
             ibusChannelData[5] = (ibus[13] << 8) + ibus[12];
             ibusChannelData[6] = (ibus[15] << 8) + ibus[14];
             ibusChannelData[7] = (ibus[17] << 8) + ibus[16];
+			ibusChannelData[8] = (ibus[19] << 8) + ibus[18];
+            ibusChannelData[9] = (ibus[21] << 8) + ibus[20];
             return TRUE;
         }
     }
     return FALSE;
 }
 
-uint32_t getReadTime(){
-    return delta_t;
-};
-
-void ibusCallback()
-{
-    ibusDataReceive(rx_buff);
-    HAL_UART_Receive_IT(uart, &rx_buff,1);
-}
 

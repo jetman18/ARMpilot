@@ -8,16 +8,21 @@ extern "C" {
 
 #include "tim.h"
 
+#define INVERT 1
+#define NOT_INVERT 0
+
 enum pwm_channel{
 	ch1 = TIM_CHANNEL_1,
 	ch2 = TIM_CHANNEL_2,
 	ch3 = TIM_CHANNEL_3,
 	ch4 = TIM_CHANNEL_4
 };
+
+
 void initPWM(TIM_HandleTypeDef *htim);
 void initOneshot125(TIM_HandleTypeDef *htim);
 void motoIdle();
-void writePwm(uint32_t Channel,int16_t dulty);
+void writePwm(uint32_t Channel,int16_t dulty,int8_t invert);
 void writeOneshot125(uint32_t Channel,int16_t dulty);
 #ifdef __cplusplus
 }

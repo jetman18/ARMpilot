@@ -104,36 +104,3 @@ void hmc_get_raw(axis3_t *as){
 	as->y=((int16_t)buf[4]<<8|buf[5]);
 }
 
-
-/*
-void magnet_sensor_calibrate(){
-
-	int16_t mx,my,mz;
-	uint8_t buf[6];
-	for(int i=0;i<4000;i++){
-			HAL_I2C_Mem_Read(qmc_i2cport,hmc_addr,(uint8_t)ADRR_START_DATA_REG,1,buf,6,read_timeout);
-			mx=(int16_t)(buf[1])<<8|buf[0];
-			my=(int16_t)(buf[3])<<8|buf[2];
-			mz=(int16_t)(buf[5])<<8|buf[4];
-
-			if(mx > max_val[0]) max_val[0] = mx;
-			if(mx < min_val[0]) min_val[0] = mx;
-
-			if(my > max_val[1]) max_val[1] = my;
-			if(my < min_val[1]) min_val[1] = my;
-
-			if(mz > max_val[2]) max_val[2] = mz;
-			if(mz < min_val[2]) min_val[2] = mz;
-	        HAL_Delay(5);
-    }
-	for(int i=0;i<3;i++){
-		if((max_val[i]*min_val[i]) < 0){
-			calib_axi[i] = (max_val[i] + min_val[i])/2;
-		}
-		else{
-		    calib_axi[i] = (max_val[i] - min_val[i])/2;
-		}
-	}
-}
-*/
-

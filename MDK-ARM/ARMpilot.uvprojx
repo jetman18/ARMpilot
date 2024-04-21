@@ -82,7 +82,7 @@
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>0</RunUserProg1>
-            <RunUserProg2>0</RunUserProg2>
+            <RunUserProg2>1</RunUserProg2>
             <UserProg1Name></UserProg1Name>
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
@@ -406,21 +406,6 @@
               <FilePath>..\Core\Driver\hmc5883.h</FilePath>
             </File>
             <File>
-              <FileName>ibus.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Driver\ibus.c</FilePath>
-            </File>
-            <File>
-              <FileName>ibus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Core\Driver\ibus.h</FilePath>
-            </File>
-            <File>
-              <FileName>interrupthandler.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Core\Driver\interrupthandler.h</FilePath>
-            </File>
-            <File>
               <FileName>mpu6050.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Driver\mpu6050.c</FilePath>
@@ -444,6 +429,21 @@
               <FileName>redefine.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Core\Driver\redefine.h</FilePath>
+            </File>
+            <File>
+              <FileName>ibus.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Driver\ibus.c</FilePath>
+            </File>
+            <File>
+              <FileName>ibus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Driver\ibus.h</FilePath>
+            </File>
+            <File>
+              <FileName>interrupt.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Driver\interrupt.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -631,9 +631,14 @@
               <FilePath>..\Core\flight\scheduler.h</FilePath>
             </File>
             <File>
-              <FileName>attitudectrl.c</FileName>
+              <FileName>config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\flight\config.h</FilePath>
+            </File>
+            <File>
+              <FileName>attitude_control.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Core\flight\attitudectrl.c</FilePath>
+              <FilePath>..\Core\flight\attitude_control.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -3,7 +3,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 #include "stm32f1xx_hal.h"
 #include "fatfs.h"
 #define BUFFER_SIZE 400
@@ -27,8 +26,6 @@ void black_box_sync(black_box_file_t *fs);
 void black_box_close(black_box_file_t *fs);
 int black_box_read(black_box_file_t *fs, char *file_name, char *bufferr,uint8_t len);
 uint16_t black_box_get_buffer_lenght(const black_box_file_t *fs);
-
-
 
 #ifdef __cplusplus
 }

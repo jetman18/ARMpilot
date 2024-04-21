@@ -28,6 +28,7 @@
 
 BMP280_HandleTypedef devv;
 
+int bmp280_altitude;
 void bmp280_init_default_params() {
 	devv.params.mode = BMP280_MODE_NORMAL;
 	devv.params.filter = BMP280_FILTER_16;
@@ -95,11 +96,10 @@ static int write_register8(uint8_t addr, uint8_t value) {
 		return true;
 }
 
-bool bmp280_init() {
-
+bool bmp280_init(I2C_HandleTypeDef* i2c) {
 
     devv.addr = BMP280_I2C_ADDRESS_0;
-	//devv.i2c  = &hi2c2;
+	devv.i2c  = i2c;
 	bmp280_init_default_params();
 
 	if (devv.addr != BMP280_I2C_ADDRESS_0
@@ -201,7 +201,7 @@ static inline int32_t compensate_temperature(int32_t adc_temp, int32_t *fine_tem
  *
  * Return value is in Pa, 24 integer bits and 8 fractional bits.
  */
-static inline uint32_t compensate_pressure(int32_t adc_press,int32_t fine_temp) {
+static  uint32_t compensate_pressure(int32_t adc_press,int32_t fine_temp) {
 	int64_t var1, var2, p;
 
 	var1 = (int64_t) fine_temp - 128000;
@@ -226,56 +226,28 @@ static inline uint32_t compensate_pressure(int32_t adc_press,int32_t fine_temp) 
 }
 
 
-float bmp280_altitude;
-float bmp280_velocity;
-bool bmp280_read_fixed() {
+bool bmp280_read_fixed(){
 	static int32_t adc_pressure;
 	static int32_t adc_temp;
 	static float pre_altitude,Dt;
 	static int32_t fine_temp;
-	static int bmp_count=0;
 	static int32_t temperature;
 	static int32_t pressure;
 	static uint32_t last_time;
 	uint8_t data[3];
-	if(bmp_count == 0){
-		if (read_data(0xf7, data,3)) {
-			return false;
-		}
-		adc_pressure = data[0] << 12 | data[1] << 4 | data[2] >> 4;
-		bmp_count++;
-		return true;
-	}
 
-	else if(bmp_count == 1){
-		if (read_data(0xfA, data,3)) {
-			return false;
-		}
-		adc_temp = data[0] << 12 | data[1] << 4 | data[2] >> 4;
-		bmp_count++;
-		return true;
-	 }
+	if (read_data(0xf7, data,3)) {
+		return false;
+	}
+	adc_pressure = data[0] << 12 | data[1] << 4 | data[2] >> 4;
 
-	else if(bmp_count == 2){
-		 temperature = compensate_temperature(adc_temp, &fine_temp);
-		 bmp_count++;
-		 return true;
+	if (read_data(0xfA, data,3)) {
+		return false;
 	}
-	else if(bmp_count == 3){
-		 pressure = compensate_pressure(adc_pressure, fine_temp);
-		 bmp_count++;
-		 return true;
-	}
-	else if(bmp_count == 4){
-		bmp280_altitude =((44330 * (1.0 - powf((float)pressure/(102416), 0.1903))))*100;
-		Dt = (micros() - last_time)*(1e-06f);
-		last_time = micros();
-        bmp280_velocity = (bmp280_altitude - pre_altitude) / Dt;
-		pre_altitude = bmp280_altitude;
-		bmp_count = 0;
-		return true;
-	}
-
+	adc_temp = data[0] << 12 | data[1] << 4 | data[2] >> 4;
+    temperature = compensate_temperature(adc_temp, &fine_temp);
+	pressure = compensate_pressure(adc_pressure, fine_temp);
+	bmp280_altitude =((44330 * (1.0 - powf((float)pressure/102416,0.1903))));
 	return true;
 }
 

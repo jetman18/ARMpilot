@@ -111,10 +111,11 @@ int main(void)
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
 
-  //timer_start(&htim7);
+//   timer_start(&htim7);
+//   mount = f_mount(&_fs,"", 1);
+//   f_open(&fs_,"today.txt", FA_CREATE_ALWAYS | FA_WRITE | FA_READ);
    main_loop();
-   //mount = f_mount(&_fs,"", 1);
-   //f_open(&fs_,"today.txt", FA_CREATE_ALWAYS | FA_WRITE | FA_READ);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -126,12 +127,12 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	 
 //	  a = micros();
-//	  f_puts("xin chao DMA 13/4/2024\n",&fs_);
+//	  f_puts("xin chao DMA 16/4/2024\n",&fs_);
 //	  f_sync(&fs_);
 //	  b= micros() - a;
-////	  	
+//////	  	
 //	  if(mount != FR_OK){
-//	      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
+//		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
 //	  }
 //	  else{
 //	      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);

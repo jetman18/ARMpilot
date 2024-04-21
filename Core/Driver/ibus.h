@@ -25,11 +25,13 @@ enum index{
 	CH8
 };
 
-void ibusGet();
-int ibusFrameComplete(void);
-void ibusDataReceive(uint8_t c);
-void ibusInit(UART_HandleTypeDef *uartt,uint32_t baudrate);
-void ibusCallback();
+#define IBUS_MAX_CHANNEL 10
+extern uint32_t ibusChannelData[IBUS_MAX_CHANNEL];
+
+void ibus_run();
+void ibus_init(UART_HandleTypeDef *uartt,uint32_t baudrate);
+void ibus_calback();
+UART_HandleTypeDef *ibus_uart_port();
 #ifdef __cplusplus
 }
 #endif
