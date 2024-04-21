@@ -1,5 +1,5 @@
 # ARMpilot
-Flight controller design for fixed-wing uav
+Flight controller for fixed-wing uav
 ## Hardware
 Flight controller board design with proteus
 - 3 port uart
