@@ -2,8 +2,10 @@
 #include "pid.h"
 #include "imu.h"
 #include "maths.h"
-#include "pwmwrite.h"
-#define loop_s 0.02 // 100h
+#include "pwm.h"
+#include "timer.h"
+#include "ibus.h"
+#define loop_s 0.01 // 100h
 
 
 #ifdef SIMULATION
@@ -13,66 +15,92 @@ extern attitude_t AHRS;
 #else
 extern attitude_t AHRS;
 #endif
-
-
+float roll_cmd;
+float pitch_cmd;
 static pid_t roll_rate,pitch_rate,yaw_rate;
 static pid_t roll_angle,pitch_angle,yaw_angle;
 
-
 void attitude_ctrl_init(){
    // init pid 
-   pid_init(&roll_rate,2,0,0,100,100,loop_s);
+   pid_init(&roll_rate,3,0,0,100,100,loop_s);
    pid_init(&roll_angle,10,0,0,100,100,loop_s);
 
-   pid_init(&pitch_rate,4,0,0,100,100,loop_s);
+   pid_init(&pitch_rate,3,0,0,100,100,loop_s);
    pid_init(&pitch_angle,10,0,0,100,100,loop_s);
 
-   //pid_init(&yaw_rate,0,0,0,20,100,loop_s);
-   //pid_init(&yaw_angle,0,0,0,20,100,loop_s);
 
 }
 
 // 100 hz
 void attitude_ctrl(){ 
-    float roll_r,pitch_r,yaw_r;
-    float roll,pitch,yaw,velocity;
-    
 #ifdef SIMULATION
-    roll_r = arrow.roll_rate;
-    pitch_r = arrow.pitch_rate;
-    yaw_r = arrow.yaw_rate;
-    roll = arrow.roll;
-    pitch = arrow.pitch;
-    yaw = arrow.yaw;
-    velocity = arrow.velocity;
+    float roll_r = arrow.roll_rate;
+    float pitch_r = arrow.pitch_rate;
+    float yaw_r = arrow.yaw_rate;
+    float roll = arrow.roll;
+    float pitch = arrow.pitch;
+    float yaw = arrow.yaw;
+    float velocity = arrow.velocity;
 #else
-    roll_r = AHRS.roll_rate;
-    pitch_r = AHRS.pitch_rate;
-    yaw_r = AHRS.yaw_rate;
-    roll = AHRS.roll;
-    pitch = AHRS.pitch;
-    yaw = AHRS.yaw;
+    float roll_r = AHRS.roll_rate;
+    float pitch_r = AHRS.pitch_rate;
+    float yaw_r = AHRS.yaw_rate;
+    float roll = AHRS.roll;
+    float pitch = AHRS.pitch;
+    float yaw = AHRS.yaw;
+    float velocity = 0;
+    float roll_cmd = ((int)ibusChannelData[0] - 1500)*0.1f;
+	float pitch_cmd = ((int)ibusChannelData[1] - 1500)*-0.1f;
 #endif
-	
-    // roll axis
-    float r_angle_pid = pid_cal(&roll_angle,roll,AHRS.roll);
-    float r_rate_pid  = -pid_cal(&roll_rate,-roll_r,r_angle_pid);
-    //pitch axis
-    float p_angle_pid = pid_cal(&pitch_angle,pitch,AHRS.pitch);
-    float p_rate_pid  = -pid_cal(&pitch_rate,-pitch_r,p_angle_pid);
+    
+	uint16_t servoL,servoR;
+	static float roll_pid_filted= 0,pitch_pid_filted = 0;
+    static float roll_trim = 0,pitch_trim = 10;
+	 static int16_t smooth_ch1=0, smooth_ch2=0;
+    if(ibusChannelData[CH5] > 1600 ){
 
-	float scale_pid = 900.0f/MAX(900,velocity*velocity);
+        float roll_pid_gain = ((int)ibusChannelData[CH7] - 1000)*0.001f;
+		float pitch_pid_gain = ((int)ibusChannelData[CH8] - 1000)*0.001f;
+        
+        // roll axis
+        float r_angle_pid = pid_cal(&roll_angle,roll,roll_cmd + roll_trim);
+        float r_rate_pid  = -pid_cal(&roll_rate,-roll_r,r_angle_pid);
+        //pitch axis
+        float p_angle_pid = pid_cal(&pitch_angle,pitch,pitch_cmd + pitch_trim);
+        float p_rate_pid  = -pid_cal(&pitch_rate,-pitch_r,p_angle_pid);
 
-    r_rate_pid = r_rate_pid*scale_pid;
-    p_rate_pid = p_rate_pid*scale_pid;
+        // need to fix
+        float scale_pid = 900.0f/MAX(900,velocity*velocity);
+        scale_pid = 1;
+        
+        r_rate_pid = r_rate_pid*scale_pid*roll_pid_gain;
+        p_rate_pid = p_rate_pid*scale_pid*pitch_pid_gain;
+        
+        roll_pid_filted  += 0.4*(r_rate_pid - roll_pid_filted);
+        pitch_pid_filted += 0.4*(p_rate_pid - pitch_pid_filted);
 
-    uint16_t servoL = 1500 + r_rate_pid - p_rate_pid;
-    uint16_t servoR = 1500 - r_rate_pid - p_rate_pid;
+        servoL = 1500 + roll_pid_filted - pitch_pid_filted;
+        servoR = 1500 - roll_pid_filted - pitch_pid_filted;
+        
+    }
+    // manual mode
+ 
+    else{
+        int s1 = 1500 - ibusChannelData[CH1];
+        int s2 = 1500 - ibusChannelData[CH2];
+
+        smooth_ch1 += 0.5*(s1 - smooth_ch1);
+        smooth_ch2 += 0.5*(s2 - smooth_ch2);
+            
+        servoL = 1500 + smooth_ch1 + smooth_ch2;
+        servoR = 1500 - smooth_ch1 + smooth_ch2;
+        
+    }
 
 
 //#define MANUAL_CTRL
 
-#ifdef MANUAL_CTRL
+#ifdef MANUAL_CTRL_JOYSTICK
     float ch2 = AHRS.roll/50;
 	float ch3 = AHRS.ppitch/50;
 
@@ -93,9 +121,8 @@ void attitude_ctrl(){
    // mavlink_send_attitude(arrow.roll,0,arrow.yaw, 
    //                       37.472,-121.170,90);
 #else
-   writePwm(0,1000); // throtlle
-   writePwm(1,servoL);
-   writePwm(2,servoR);
+
+write_pwm_ctrl(ibusChannelData[CH3],servoL,servoR);
 #endif
 
 }

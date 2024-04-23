@@ -129,7 +129,7 @@ bool bmp280_init(I2C_HandleTypeDef* i2c) {
 			break;
 	}
 
-	if (!read_calibration_data(&devv)) {
+	if (!read_calibration_data()) {
 		return false;
 	}
 

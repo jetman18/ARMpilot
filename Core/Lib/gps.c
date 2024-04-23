@@ -214,7 +214,6 @@ void gps_thread(){
         }
            
     }
-    _therad_read_time_ms = millis() - current_time_ms;
 
 }
 
@@ -311,13 +310,13 @@ static uint8_t parse_msg(){
     return FALSE;
 }
 
-
+int parse_ok;
 static uint8_t newdata(uint8_t data){
     uint8_t parsed = FALSE;
     static uint8_t _ck_a;
     static uint8_t _ck_b;
     static uint8_t _step = 0;
-    uint32_t current_time_ms = millis();
+    static uint32_t current_time_ms = 0;
     switch (_step) {
         case 0: // Sync char 1 (0xB5)
             if (PREAMBLE1 == data)
@@ -369,11 +368,10 @@ static uint8_t newdata(uint8_t data){
             _step = 0;
             if (_ck_b != data)
                 break;   
-			
+			 _therad_read_time_ms = micros() - current_time_ms;
+			 current_time_ms = micros();
             if (parse_msg())
             {
-
-                _therad_read_time_ms = millis() - current_time_ms;
                 parsed = TRUE;
             }
     } 

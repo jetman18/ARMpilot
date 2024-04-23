@@ -12,7 +12,7 @@ static FATFS *pfs;
 static DWORD fre_clust;
 static FATFS _fs;
 int8_t isSdcard_valid;
-
+int8_t isSdcard_write;
 static void reverse( char *str, int len);
 static int intToStr(black_box_file_t *fs,int x,  char *str, int d);
 static int n_tu(int number, int count);
@@ -22,6 +22,7 @@ static int Float_to_string(float f, uint8_t places, char strOut[]);
  * init black box
  */
 int black_box_init(){
+	isSdcard_write = 0;
     isSdcard_valid = 0;
     uint8_t mount = f_mount(&_fs,"", 1);
 	if( mount != 0 ){
@@ -163,12 +164,12 @@ void black_box_pack_str(black_box_file_t *fs,const char *c){
 /*
  * Description: Write buffer to sd card
  */
+
 void black_box_load(black_box_file_t *fs)
  {
       if(isSdcard_valid)
 		  return;
-      f_puts(fs->buffer,&fs->file);
-
+      isSdcard_write = f_puts(fs->buffer,&fs->file);
       memset(fs->buffer,0,sizeof(fs->buffer));
       fs->buffer_index = 0;
 

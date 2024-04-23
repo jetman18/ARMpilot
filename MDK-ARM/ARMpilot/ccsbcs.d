@@ -1,4 +1,7 @@
-armpilot/stm32f1xx_it.o: ..\Core\Src\stm32f1xx_it.c ..\Core\Inc\main.h \
+armpilot/ccsbcs.o: ..\Middlewares\Third_Party\FatFs\src\option\ccsbcs.c \
+  ..\Middlewares\Third_Party\FatFs\src\option\..\ff.h \
+  ..\Middlewares\Third_Party\FatFs\src\option\..\integer.h \
+  ..\FATFS\Target\ffconf.h ..\Core\Inc\main.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
   ..\Core\Inc\stm32f1xx_hal_conf.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h \
@@ -31,4 +34,4 @@ armpilot/stm32f1xx_it.o: ..\Core\Src\stm32f1xx_it.c ..\Core\Inc\main.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
-  ..\Core\Inc\stm32f1xx_it.h ..\Core\Lib\pwm.h ..\Core\Inc\tim.h
+  ..\FATFS\Target\bsp_driver_sd.h

@@ -1,6 +1,6 @@
 
-#ifndef PWMWRITE_H
-#define PWMWRITE_H
+#ifndef PWM_H
+#define PWM_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -20,10 +20,9 @@ enum pwm_channel{
 
 
 void initPWM(TIM_HandleTypeDef *htim);
-void initOneshot125(TIM_HandleTypeDef *htim);
-void motoIdle();
 void writePwm(uint32_t Channel,int16_t dulty,int8_t invert);
-void writeOneshot125(uint32_t Channel,int16_t dulty);
+void write_pwm_ctrl(uint16_t throtlle,uint16_t servoL,uint16_t servoR);
+void pwm_systick_callback();
 #ifdef __cplusplus
 }
 #endif

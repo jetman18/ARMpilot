@@ -4,15 +4,15 @@
 extern "C" {
 #endif
 #include "stm32f1xx_hal.h"
-#define SIMULATION
+//#define SIMULATION
 // attitude controll
 
 
 // navigation
-extern uint16_t autopilot_stick;
-extern uint16_t circle_stick;
-extern uint16_t rtHome_stick;
-void Autopilot();
+//extern uint16_t autopilot_stick;
+//extern uint16_t circle_stick;
+//extern uint16_t rtHome_stick;
+//void Autopilot();
 
 // mavlink handler
 void mavlinkInit(uint8_t syss_id, uint8_t comm_id,UART_HandleTypeDef *uartt,uint32_t baudrate);
@@ -26,6 +26,7 @@ void attitude_ctrl();
 void attitude_ctrl_init();
 // mainloop
 void main_loop();
+
 #ifdef __cplusplus
 }
 #endif

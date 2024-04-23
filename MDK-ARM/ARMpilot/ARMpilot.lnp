@@ -13,9 +13,9 @@
 "armpilot\maths.o"
 "armpilot\pid.o"
 "armpilot\ppmreceiver.o"
-"armpilot\pwmwrite.o"
 "armpilot\sensordetect.o"
 "armpilot\timer.o"
+"armpilot\pwm.o"
 "armpilot\estimate.o"
 "armpilot\mavlink_handler.o"
 "armpilot\navigation.o"
@@ -57,6 +57,7 @@
 "armpilot\ff.o"
 "armpilot\ff_gen_drv.o"
 "armpilot\syscall.o"
+"armpilot\ccsbcs.o"
 "armpilot\sd_diskio.o"
 --strict --scatter "ARMpilot\ARMpilot.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols

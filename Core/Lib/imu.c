@@ -23,7 +23,7 @@ float integralFBz;
 float acc_Eframe[3];
 static const float Ki = 0;
 static const float Kp = 2;
-const float Dt_ahrs = 0.01;
+const float Dt_ahrs = 0.01f;
 // calibration 
 int16_t gyr_offs_x;
 int16_t gyr_offs_y;

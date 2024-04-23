@@ -36,8 +36,8 @@ armpilot/scheduler.o: ..\Core\flight\scheduler.c ..\Core\Inc\usart.h \
   C:\Keil_v5\ARM\ARMCLANG\include\stdio.h \
   C:\Keil_v5\ARM\ARMCLANG\include\string.h ..\Core\Lib\faulthandler.h \
   ..\Core\Lib\log.h ..\Core\Lib\imu.h ..\Core\Lib\axis.h \
-  ..\Core\Lib\pwmwrite.h ..\Core\Inc\tim.h ..\Core\Lib\pid.h \
-  ..\Core\Driver\ibus.h ..\Core\Lib\gps.h ..\Core\Lib\utils.h \
+  ..\Core\Lib\pid.h ..\Core\Driver\ibus.h ..\Core\Lib\pwm.h \
+  ..\Core\Inc\tim.h ..\Core\Lib\gps.h ..\Core\Lib\utils.h \
   ..\Core\Driver\mpu6050.h ..\Core\Driver\ms5611.h \
   ..\Core\Driver\hmc5883.h ..\Core\Driver\..\lib\axis.h \
   ..\Core\Driver\interrupt.h ..\Core\simulation\simulation.h \

@@ -9,11 +9,7 @@ extern "C" {
 #include "timer.h"
 
 
-void HAL_IncTick(void)
-{
-  //resetCounter();
-  uwTick += uwTickFreq;
-}
+
 
 
 

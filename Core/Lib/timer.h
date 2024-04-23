@@ -22,6 +22,7 @@ TIM_HandleTypeDef *timer_name();
 
 #define micros() (_micros + (__HAL_TIM_GET_COUNTER(htimmz)))
 #define millis() (micros() / 1000)
+#define seconds() (micros()/1000000)
 #define TIMER_CALLBACK()  (_micros += 65535)
 #ifdef __cplusplus
 }

@@ -35,5 +35,6 @@ armpilot/attitude_control.o: ..\Core\flight\attitude_control.c \
   ..\Core\Lib\pid.h C:\Keil_v5\ARM\ARMCLANG\include\stdio.h \
   ..\Core\Lib\imu.h ..\Core\Lib\axis.h ..\Core\Lib\maths.h \
   C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h \
-  C:\Keil_v5\ARM\ARMCLANG\include\math.h ..\Core\Lib\pwmwrite.h \
-  ..\Core\Inc\tim.h ..\Core\Inc\main.h ..\Core\simulation\simulation.h
+  C:\Keil_v5\ARM\ARMCLANG\include\math.h ..\Core\Lib\pwm.h \
+  ..\Core\Inc\tim.h ..\Core\Inc\main.h ..\Core\Lib\timer.h \
+  ..\Core\Driver\ibus.h

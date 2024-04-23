@@ -22,7 +22,9 @@ enum index{
 	CH5,
 	CH6,
 	CH7,
-	CH8
+	CH8,
+	CH9,
+	CH10
 };
 
 #define IBUS_MAX_CHANNEL 10

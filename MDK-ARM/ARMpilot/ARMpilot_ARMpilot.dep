@@ -1,6 +1,6 @@
 Dependencies for Project 'ARMpilot', Target 'ARMpilot': (DO NOT MODIFY !)
 CompilerVersion: 6210000::V6.21::ARMCLANG
-F (..\Core\Driver\bmp280.c)(0x6623548F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/bmp280.o -MD)
+F (..\Core\Driver\bmp280.c)(0x66267F66)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/bmp280.o -MD)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
@@ -119,7 +119,7 @@ I (..\Core\Lib\axis.hx:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x00000000)
 I (..\Core\Inc\i2c.hh.\Core\Inc\main.hM.\Core\Inc\gpio.h)(0x00000000)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6569BE22)
 F (..\Core\Driver\mpu6050.h)(0x65ECD557)()
-F (..\Core\Driver\ms5611.c)(0x660EAF8B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/ms5611.o -MD)
+F (..\Core\Driver\ms5611.c)(0x66276FE0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/ms5611.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.hs\Core\Inc\i2c.h)(0x00000000)
 I (..\Core\Inc\main.hC.\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x00000000)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
@@ -162,9 +162,9 @@ I (..\FATFS\Target\ffconf.ht.\FATFS\Target\bsp_driver_sd.h)(0x00000000)
 I (..\Middlewares\Third_Party\FatFs\src\ff_gen_drv.h)(0x6509AFCB)
 I (..\Middlewares\Third_Party\FatFs\src\diskio.h)(0x6509AFCB)
 I (..\Middlewares\Third_Party\FatFs\src\drivers\sd_diskio.h)(0x6509AFCB)
-F (..\Core\Driver\ms5611.h)(0x6506D011)()
-F (..\Core\Driver\redefine.h)(0x6611CA5A)()
-F (..\Core\Driver\ibus.c)(0x66253F86)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/ibus.o -MD)
+F (..\Core\Driver\ms5611.h)(0x66276E80)()
+F (..\Core\Driver\redefine.h)(0x662675C1)()
+F (..\Core\Driver\ibus.c)(0x6627019E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/ibus.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6569BE22)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6569BE22)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h..\Core\Driver\ibus.h)(0x00000000)
@@ -200,10 +200,10 @@ I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
 I (..\Core\Lib\timer.hx:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x00000000)
-F (..\Core\Driver\ibus.h)(0x662530ED)()
-F (..\Core\Driver\interrupt.h)(0x66253721)()
+F (..\Core\Driver\ibus.h)(0x6626837E)()
+F (..\Core\Driver\interrupt.h)(0x6626877E)()
 F (..\Core\Lib\axis.h)(0x6509B647)()
-F (..\Core\Lib\blackbox.c)(0x66252B16)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/blackbox.o -MD)
+F (..\Core\Lib\blackbox.c)(0x6626F1E8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/blackbox.o -MD)
 I (..\Middlewares\Third_Party\FatFs\src\ff.h)(0x6509AFCB)
 I (..\Middlewares\Third_Party\FatFs\src\integer.h)(0x6509AFCB)
 I (..\FATFS\Target\ffconf.ht.\Core\Inc\main.h)(0x00000000)
@@ -336,7 +336,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6569BE22)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h..\Core\Inc\tim.h)(0x00000000)
 F (..\Core\Lib\faulthandler.h)(0x65F5B979)()
 F (..\Core\Lib\filter.h)(0x6509A631)()
-F (..\Core\Lib\gps.c)(0x66253236)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/gps.o -MD)
+F (..\Core\Lib\gps.c)(0x66264104)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/gps.o -MD)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
@@ -375,8 +375,8 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.hh\Core\Lib\timer.h)(0x00000000)
 I (..\Core\Lib\gpsconfig.h\.\Core\Lib\maths.h)(0x00000000)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h..\Core\flight\plane.h)(0x00000000)
 F (..\Core\Lib\gps.h)(0x6625323E)()
-F (..\Core\Lib\gpsconfig.h)(0x65E96784)()
-F (..\Core\Lib\imu.c)(0x661E2DC0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/imu.o -MD)
+F (..\Core\Lib\gpsconfig.h)(0x66263F38)()
+F (..\Core\Lib\imu.c)(0x662660D0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/imu.o -MD)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
@@ -416,7 +416,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\math.h..\Core\Lib\filter.h)(0x00000000)
 I (..\Core\Lib\timer.hL.\Core\Driver\mpu6050.hr.\Core\Driver\hmc5883.h)(0x00000000)
 I (..\Core\Driver\..\lib\axis.hr.\Core\Inc\i2c.h\.\Core\Inc\main.h)(0x00000000)
 I (..\Core\flight\config.hx.\Core\Lib\utils.h)(0x00000000)
-F (..\Core\Lib\imu.h)(0x661E207A)()
+F (..\Core\Lib\imu.h)(0x66276792)()
 F (..\Core\Lib\log.c)(0x6516E130)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/log.o -MD)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
@@ -568,43 +568,6 @@ I (..\Core\Inc\gpio.hh.\Core\Inc\main.hM.\Core\Lib\maths.h)(0x00000000)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6569BE22)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x6569BE22)
 F (..\Core\Lib\ppmreceiver.h)(0x6506D011)()
-F (..\Core\Lib\pwmwrite.c)(0x66252E32)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/pwmwrite.o -MD)
-I (..\Core\Inc\tim.hi.\Core\Inc\main.h)(0x00000000)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
-I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h)(0x6509B01B)
-I (..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h)(0x6509B01B)
-I (..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h)(0x6509B01B)
-I (..\Drivers\CMSIS\Include\core_cm3.h)(0x6509AFC3)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6569BE22)
-I (C:\Users\tuan\Documents\Stmproject\ARMpilot\Drivers\CMSIS\Include\cmsis_version.h)(0x6509AFC3)
-I (C:\Users\tuan\Documents\Stmproject\ARMpilot\Drivers\CMSIS\Include\cmsis_compiler.h)(0x6509AFC3)
-I (C:\Users\tuan\Documents\Stmproject\ARMpilot\Drivers\CMSIS\Include\cmsis_armclang.h)(0x6509AFC3)
-I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x64F9723C)
-I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6569BE20)
-I (..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x6509B01B)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x6569BE22)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_exti.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2c.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_sd.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x6509B01B)
-I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
-I (..\Core\Lib\maths.hx:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x00000000)
-I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x6569BE22)
-F (..\Core\Lib\pwmwrite.h)(0x6622B8AA)()
 F (..\Core\Lib\sensordetect.c)(0x6611740B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/sensordetect.o -MD)
 I (..\Core\Lib\sensordetect.h)(0x65FC6664)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
@@ -683,8 +646,45 @@ I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h3\Core\Lib\maths.h)(0x00000000)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6569BE22)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x6569BE22)
-F (..\Core\Lib\timer.h)(0x661193E6)()
+F (..\Core\Lib\timer.h)(0x66267E7E)()
 F (..\Core\Lib\utils.h)(0x661E031B)()
+F (..\Core\Lib\pwm.c)(0x6626FAAF)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/pwm.o -MD)
+I (..\Core\Inc\main.h..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x00000000)
+I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h)(0x6509B01B)
+I (..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h)(0x6509B01B)
+I (..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h)(0x6509B01B)
+I (..\Drivers\CMSIS\Include\core_cm3.h)(0x6509AFC3)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6569BE22)
+I (C:\Users\tuan\Documents\Stmproject\ARMpilot\Drivers\CMSIS\Include\cmsis_version.h)(0x6509AFC3)
+I (C:\Users\tuan\Documents\Stmproject\ARMpilot\Drivers\CMSIS\Include\cmsis_compiler.h)(0x6509AFC3)
+I (C:\Users\tuan\Documents\Stmproject\ARMpilot\Drivers\CMSIS\Include\cmsis_armclang.h)(0x6509AFC3)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x64F9723C)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6569BE20)
+I (..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x6509B01B)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x6569BE22)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_exti.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2c.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_sd.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
+I (..\Core\Lib\maths.hx:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x00000000)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.hL\Core\Lib\timer.h)(0x00000000)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6569BE22)
+F (..\Core\Lib\pwm.h)(0x66267822)()
 F (..\Core\flight\estimate.c)(0x65A67A06)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/estimate.o -MD)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
@@ -719,7 +719,7 @@ I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
 F (..\Core\flight\mavlink_handler.c)(0x661D2970)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/mavlink_handler.o -MD)
-I (..\Core\flight\plane.h)(0x661D583C)
+I (..\Core\flight\plane.h)(0x6626878F)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
@@ -879,7 +879,7 @@ I (..\Core\mavlink\common\.\mavlink_msg_named_value_int.h)(0x6506D011)
 I (..\Core\mavlink\common\.\mavlink_msg_statustext.h)(0x6506D011)
 I (..\Core\mavlink\common\.\mavlink_msg_debug.he.\Core\Inc\usart.h)(0x00000000)
 I (..\Core\Inc\main.h)(0x66252FE9)
-F (..\Core\flight\navigation.c)(0x661CFCDA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/navigation.o -MD)
+F (..\Core\flight\navigation.c)(0x66267F1E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/navigation.o -MD)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
@@ -915,8 +915,8 @@ I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
 I (..\Core\Lib\maths.hx:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x00000000)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.hL\Core\Lib\utils.h)(0x00000000)
 I (..\Core\Lib\timer.hL:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x00000000)
-I (..\Core\flight\plane.h)(0x661D583C)
-F (..\Core\flight\plane.c)(0x66117461)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/plane.o -MD)
+I (..\Core\flight\plane.h)(0x6626878F)
+F (..\Core\flight\plane.c)(0x6626878C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/plane.o -MD)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
@@ -949,8 +949,8 @@ I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
-F (..\Core\flight\plane.h)(0x661D583C)()
-F (..\Core\flight\scheduler.c)(0x662542CE)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/scheduler.o -MD)
+F (..\Core\flight\plane.h)(0x6626878F)()
+F (..\Core\flight\scheduler.c)(0x662773C4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/scheduler.o -MD)
 I (..\Core\Inc\main.he.\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x00000000)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
@@ -988,10 +988,10 @@ I (..\Core\flight\plane.ho.\Core\Driver\redefine.hh.\Core\Lib\timer.h)(0x0000000
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6569BE22)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.he\Core\Lib\faulthandler.h)(0x00000000)
 I (..\Core\Lib\log.hM.\Core\Lib\imu.hr.\Core\Lib\axis.h)(0x00000000)
-I (..\Core\Lib\pwmwrite.hr.\Core\Inc\tim.hr.\Core\Lib\pid.h)(0x00000000)
-I (..\Core\Driver\ibus.hh.\Core\Lib\gps.hh.\Core\Lib\utils.h)(0x00000000)
-I (..\Core\Driver\mpu6050.hC.\Core\Driver\ms5611.h)(0x00000000)
-I (..\Core\Driver\hmc5883.hC.\Core\Driver\..\lib\axis.h)(0x00000000)
+I (..\Core\Lib\pid.hM.\Core\Driver\ibus.ho.\Core\Lib\pwm.h)(0x00000000)
+I (..\Core\Inc\tim.hM.\Core\Lib\gps.hu.\Core\Lib\utils.h)(0x00000000)
+I (..\Core\Driver\mpu6050.h\.\Core\Driver\ms5611.h)(0x00000000)
+I (..\Core\Driver\hmc5883.h\.\Core\Driver\..\lib\axis.h)(0x00000000)
 I (..\Core\Driver\interrupt.h\.\Core\simulation\simulation.h)(0x00000000)
 I (..\Core\Lib\ppmreceiver.hh.\Core\Lib\sensordetect.h)(0x00000000)
 I (..\Core\Lib\blackbox.hr.\FATFS\App\fatfs.h)(0x00000000)
@@ -1006,8 +1006,8 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6569BE22)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x6569BE22)
 F (..\Core\flight\scheduler.h)(0x6613BF24)()
 F (..\Core\flight\config.h)(0x661E02B2)()
-F (..\Core\flight\attitude_control.c)(0x661F559F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/attitude_control.o -MD)
-I (..\Core\flight\plane.h)(0x661D583C)
+F (..\Core\flight\attitude_control.c)(0x66277373)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/attitude_control.o -MD)
+I (..\Core\flight\plane.h)(0x6626878F)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
@@ -1043,8 +1043,9 @@ I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
 I (..\Core\Lib\pid.h1:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x00000000)
 I (..\Core\Lib\imu.h1.\Core\Lib\axis.hC.\Core\Lib\maths.h)(0x00000000)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6569BE22)
-I (C:\Keil_v5\ARM\ARMCLANG\include\math.h..\Core\Lib\pwmwrite.h)(0x00000000)
-I (..\Core\Inc\tim.hM.\Core\Inc\main.hh.\Core\simulation\simulation.h)(0x00000000)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h..\Core\Lib\pwm.h)(0x00000000)
+I (..\Core\Inc\tim.hM.\Core\Inc\main.hh.\Core\Lib\timer.h)(0x00000000)
+I (..\Core\Driver\ibus.h)(0x6626837E)
 F (..\Core\simulation\simulation.c)(0x661D7BD9)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/simulation.o -MD)
 I (..\Core\simulation\simulation.h)(0x661D3F48)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
@@ -1207,7 +1208,7 @@ F (..\Core\mavlink\mavlink_conversions.h)(0x6506D011)()
 F (..\Core\mavlink\mavlink_helpers.h)(0x6506D011)()
 F (..\Core\mavlink\mavlink_types.h)(0x6506D011)()
 F (..\Core\mavlink\protocol.h)(0x6506D011)()
-F (startup_stm32f103xe.s)(0x66253F74)(--target=arm-arm-none-eabi -mcpu=cortex-m3 -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 539" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32F10X_HD SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o armpilot/startup_stm32f103xe.o)
+F (startup_stm32f103xe.s)(0x6626476E)(--target=arm-arm-none-eabi -mcpu=cortex-m3 -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 539" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32F10X_HD SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o armpilot/startup_stm32f103xe.o)
 F (../Core/Src/main.c)(0x66254259)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/main.o -MD)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
@@ -1349,7 +1350,7 @@ I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
-F (../Core/Src/sdio.c)(0x662541FE)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/sdio.o -MD)
+F (../Core/Src/sdio.c)(0x66265848)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/sdio.o -MD)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
@@ -1382,7 +1383,7 @@ I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
-F (../Core/Src/tim.c)(0x6610EE78)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/tim.o -MD)
+F (../Core/Src/tim.c)(0x662625D8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/tim.o -MD)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
@@ -1415,7 +1416,7 @@ I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
-F (../Core/Src/usart.c)(0x66253F70)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/usart.o -MD)
+F (../Core/Src/usart.c)(0x6626476C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/usart.o -MD)
 I (..\Core\Inc\main.hc.\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x00000000)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
@@ -1448,7 +1449,7 @@ I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
-F (../Core/Src/stm32f1xx_it.c)(0x66253E18)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/stm32f1xx_it.o -MD)
+F (../Core/Src/stm32f1xx_it.c)(0x662677EA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/stm32f1xx_it.o -MD)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
@@ -1481,7 +1482,7 @@ I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x6509B01B)
 I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
-I (..\Core\Inc\stm32f1xx_it.h)(0x66253E19)
+I (..\Core\Inc\stm32f1xx_it.hr.\Core\Lib\pwm.hx.\Core\Inc\tim.h)(0x00000000)
 F (../Core/Src/stm32f1xx_hal_msp.c)(0x661A6B45)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/stm32f1xx_hal_msp.o -MD)
 I (..\Core\Inc\main.h1.\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x00000000)
 I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
@@ -2300,6 +2301,43 @@ I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
 I (..\FATFS\Target\bsp_driver_sd.h)(0x66126F61)
 F (../Middlewares/Third_Party/FatFs/src/option/syscall.c)(0x6509AFCB)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/syscall.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6569BE22)
+I (..\Middlewares\Third_Party\FatFs\src\option\..\ff.h)(0x6509AFCB)
+I (..\Middlewares\Third_Party\FatFs\src\option\..\integer.h)(0x6509AFCB)
+I (..\FATFS\Target\ffconf.ht.\Core\Inc\main.h)(0x00000000)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x6509B01B)
+I (..\Core\Inc\stm32f1xx_hal_conf.h)(0x661D27B3)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h)(0x6509B01B)
+I (..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h)(0x6509B01B)
+I (..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h)(0x6509B01B)
+I (..\Drivers\CMSIS\Include\core_cm3.h)(0x6509AFC3)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6569BE22)
+I (C:\Users\tuan\Documents\Stmproject\ARMpilot\Drivers\CMSIS\Include\cmsis_version.h)(0x6509AFC3)
+I (C:\Users\tuan\Documents\Stmproject\ARMpilot\Drivers\CMSIS\Include\cmsis_compiler.h)(0x6509AFC3)
+I (C:\Users\tuan\Documents\Stmproject\ARMpilot\Drivers\CMSIS\Include\cmsis_armclang.h)(0x6509AFC3)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x64F9723C)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6569BE20)
+I (..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x6509B01B)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x6569BE22)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_exti.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2c.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_sd.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x6509B01B)
+I (..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h)(0x6509B01B)
+I (..\FATFS\Target\bsp_driver_sd.h)(0x66126F61)
+F (../Middlewares/Third_Party/FatFs/src/option/ccsbcs.c)(0x6509AFCB)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-covered-switch-default -Wno-unreachable-code-break -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Driver -I ../Core/flight -I ../Core/Lib -I ../Core/mavlink -I ../Core/mavlink/common -I ../FATFS/Target -I ../FATFS/App -I ../Middlewares/Third_Party/FatFs/src -I ../Middlewares/Third_Party/FatFs/src/drivers -I ../Core/simulation-I./RTE/_ARMpilot-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_HD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xE-o armpilot/ccsbcs.o -MD)
 I (..\Middlewares\Third_Party\FatFs\src\option\..\ff.h)(0x6509AFCB)
 I (..\Middlewares\Third_Party\FatFs\src\option\..\integer.h)(0x6509AFCB)
 I (..\FATFS\Target\ffconf.ht.\Core\Inc\main.h)(0x00000000)

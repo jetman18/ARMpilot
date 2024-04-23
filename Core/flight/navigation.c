@@ -3,7 +3,7 @@
 #include "utils.h"
 #include "timer.h"
 #include "plane.h"
-
+/*
 #define toDEG (180/3.14159265359f)
 #define toRAD (3.14159265359f/180)
 #define  EARTH_RADIUS  6356752  //m
@@ -55,14 +55,14 @@ static float waypointBearing(int lat1,int lon1,int lat2, int lon2);
 static int distanceBetweenTwoPoint(int lat1,int lon1,int lat2, int lon2);
 static void rtHome();
 
-/*
+//
 // 3 main mode
 flymode modef[]={
    {waypointFlow, 0 },
    {circleFly   , 1 },
    {rtHome      , 2 }
 };
-*/
+//
 static void rtHome(){
 }
 
@@ -162,4 +162,4 @@ static int distanceBetweenTwoPoint(int lat1,int lon1,int lat2, int lon2){
    int dis = sqrtf(a_temp*a_temp + b_temp*b_temp);
    return dis;
 }
-
+*/

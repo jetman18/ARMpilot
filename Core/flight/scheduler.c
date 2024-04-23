@@ -9,9 +9,9 @@
 #include "faulthandler.h"
 #include "log.h"
 #include "imu.h"
-#include "pwmwrite.h"
 #include "pid.h"
 #include "ibus.h"
+#include "pwm.h"
 #include "gps.h"
 #include "imu.h"
 #include "timer.h"
@@ -42,14 +42,19 @@ uint32_t max_excution_time_us;
 uint32_t num_tasks;
 uint16_t loop_us;
 black_box_file_t data_test;
+extern int8_t isSdcard_valid;
+extern int8_t isSdcard_write;
 // Loop init variable
 
 /*
- * Test function blink led pc13
+ * Test function 
  */
-static void tongepin13()
+static void task_check_gps_fix()
 {
-	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+	//if(_gps.fix != 0){
+	//if (ibusChannelData[4] > 1600){
+	    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+	//}
 }
 static void tonggle_red_led()
 {
@@ -57,7 +62,9 @@ static void tonggle_red_led()
 }
 static void tonggle_green_led()
 {
-	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+	if(isSdcard_write != -1 && isSdcard_valid != 1 && ibusChannelData[CH10] > 1600){
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+	}
 }
 
 static void task_mavlink(){
@@ -65,58 +72,71 @@ static void task_mavlink(){
    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
 }
 
-static void task_black_box(){  // take about 10 ms
-  if (ibusChannelData[8] > 1600){
-      // position
-      black_box_pack_str(&data_test,"lat ");
-      black_box_pack_int(&data_test,_gps.position[0]);
-      black_box_pack_str(&data_test,",lon ");
-      black_box_pack_int(&data_test,_gps.position[1]);
-      black_box_pack_str(&data_test,",alt ");
-      
-      black_box_pack_int(&data_test,_gps.altitude_msl);
-      black_box_pack_str(&data_test,",baro alt ");
-      black_box_pack_int(&data_test,0);
-      black_box_pack_str(&data_test,",gps_fix ");
-      black_box_pack_int(&data_test,_gps.fix);
-      
-      black_box_pack_str(&data_test,",v1 ");
-      black_box_pack_int(&data_test,_gps.velocity[0]);
-      black_box_pack_str(&data_test,",v2 ");
-      black_box_pack_int(&data_test,_gps.velocity[1]);
-      black_box_pack_str(&data_test,",v3 ");
-      black_box_pack_int(&data_test,_gps.velocity[2]);
+extern float roll_cmd;
+extern float pitch_cmd;
+static void task_black_box(){ 
+  if (ibusChannelData[CH10] > 1600){   
+    /*****roll_cmd roll pitch_cmd pitch lat lon alt baro_alt gps_fix sat v_g v_g_ v_z */  
+	black_box_pack_int(&data_test,roll_cmd);
+    black_box_pack_str(&data_test," ");
+	black_box_pack_int(&data_test,AHRS.roll);
+    black_box_pack_str(&data_test," ");
+	black_box_pack_int(&data_test,pitch_cmd);
+    black_box_pack_str(&data_test," ");
+	black_box_pack_int(&data_test,AHRS.pitch);
+    black_box_pack_str(&data_test," "); 
+	black_box_pack_int(&data_test,_gps.position[0]);
+    black_box_pack_str(&data_test," ");
+    black_box_pack_int(&data_test,_gps.position[1]);
+    black_box_pack_str(&data_test," ");
+    black_box_pack_int(&data_test,_gps.altitude_msl);
+    black_box_pack_str(&data_test," ");
+    black_box_pack_int(&data_test,ms5611_altitude);
+    black_box_pack_str(&data_test," ");
+    black_box_pack_int(&data_test,_gps.fix);
+    black_box_pack_str(&data_test," ");
+    black_box_pack_int(&data_test,_gps.numSat);
+    int vg = sqrt(_gps.velocity[0]*_gps.velocity[0] + _gps.velocity[1]*_gps.velocity[1]);
+    black_box_pack_str(&data_test," ");
+    black_box_pack_int(&data_test,vg);
+    black_box_pack_str(&data_test," ");
+    black_box_pack_int(&data_test,_gps.Gspeed);
+    black_box_pack_str(&data_test," ");
+    black_box_pack_int(&data_test,_gps.velocity[2]);
+	black_box_pack_str(&data_test," ");
+    black_box_pack_int(&data_test,ms5611_pressure); 
+	black_box_pack_str(&data_test," ");
+    black_box_pack_int(&data_test,_gps.ground_course); 
+    black_box_pack_str(&data_test,"\n");
+    black_box_load(&data_test);
+	  black_box_sync(&data_test);
 
-      black_box_pack_str(&data_test,"\n");
-      black_box_load(&data_test);
-      black_box_sync(&data_test);
     }
 
 }
 
 // task init
 task_t task[]={ 
-  {imu_update_ahrs,      0,0,0,Feq_100hz}, 
-  //{attitude_ctrl,    0,0,0,Feq_50hz},
-  {tongepin13,          0,0,0,Feq_1hz},
-  {task_black_box,   0,0,0,Feq_10hz},
-   //{ms5611_start,         0,0,0,1},
-  {ibus_run,         0,0,0,Feq_50hz}   
-   // {tongepin13,         0,0,0,100},  
+  {imu_update_ahrs,    0,0,0,Feq_100hz}, 
+  {attitude_ctrl,    0,0,0,Feq_100hz},
+  {ms5611_start, 0,0,0,Feq_50hz},
+  {task_black_box,     0,0,0,Feq_10hz},
+  {tonggle_green_led,    0,0,0,Feq_10hz},
+  {ibus_run,           0,0,0,Feq_100hz},
+  {task_check_gps_fix,    0,0,0,Feq_1hz}
 };
 
 void init_scheduler(){
   // init backbox for logging data
   if(!black_box_init()){
-       black_box_create_file(&data_test,"fdata.txt");
+       black_box_create_file(&data_test,"flightdata.txt");
    }
   timer_start(&htim7); 
-  initPWM(&htim3);  
+  initPWM(&htim3); 
   ibus_init(&huart2,115200);
 
   //mavlinkInit(22,10,&huart1,115200);
   attitude_ctrl_init();
-
   mpu6050_init(&hi2c2); 
   i2cDectect(&hi2c2); 
   HAL_Delay(2000);     // wait a second after connected battery 
@@ -127,8 +147,7 @@ void init_scheduler(){
   gps_init(&huart1,57600);
 
   /* scheduler parameters */
-	num_tasks = zeroSet();
-  max_excution_time_us = zeroSet();
+  max_excution_time_us = 0;
 	num_tasks  = sizeof(task)/sizeof(task_t);
 	loop_us = (1.0f/ LOOP_FEQ)*1e+6 ;
 }
@@ -149,7 +168,9 @@ void start_scheduler() {
 		  
       }
   }
-  max_excution_time_us = total_factor_excution_us;
+  if(max_excution_time_us < total_factor_excution_us){
+       max_excution_time_us = total_factor_excution_us;
+  }
   counter ++;
   if(counter ==  LOOP_FEQ)counter = 0;
   while((int)(micros() - timeUs) < loop_us);

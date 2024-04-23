@@ -7,7 +7,7 @@
 #define FALSE 0
 #define TRUE 1
 
-#define DMA_MODE
+//#define DMA_MODE
 
 static int ibusFrameDone = FALSE;
 uint32_t ibusChannelData[IBUS_MAX_CHANNEL];
@@ -27,6 +27,9 @@ static int ibusFrameComplete(void);
 
 void ibus_init(UART_HandleTypeDef *uartt,uint32_t baudrate)
 {
+    for(int i = 0;i < IBUS_MAX_CHANNEL ; i++){
+      ibusChannelData[i] = 1000;
+    }
 	uart = uartt;
     uartt->Init.BaudRate = baudrate;
 	HAL_UART_Init(uartt);
@@ -42,15 +45,7 @@ UART_HandleTypeDef *ibus_uart_port(){
    return uart;
 }
 
-
-#define MAX_WAITTIME 100 //ms
-static uint32_t p_time;
 void ibus_run(){
-    // check if tx disconnect
-	if( (millis() - p_time) >  MAX_WAITTIME){
-	    ibusChannelData[2] = 1000; // throtlle
-		ibusChannelData[5] = 2000; // arm 
-	}
 #ifdef DMA_MODE
    if(is_receive_cpl){
 	 
@@ -68,7 +63,6 @@ void ibus_run(){
 }
 
 void ibus_calback(){
-	p_time = millis();
 #ifdef DMA_MODE
 	is_receive_cpl = 1;
 #else 
@@ -130,6 +124,12 @@ static int ibusFrameComplete(void)
             ibusChannelData[7] = (ibus[17] << 8) + ibus[16];
 			ibusChannelData[8] = (ibus[19] << 8) + ibus[18];
             ibusChannelData[9] = (ibus[21] << 8) + ibus[20];
+			
+			for(int i =0; i< IBUS_MAX_CHANNEL ;i++){
+			    if(ibusChannelData[i] > 2100){
+				    ibusChannelData[i] = 1000;
+				}
+			}
             return TRUE;
         }
     }

@@ -46,6 +46,7 @@ typedef struct{
     float gyr_lsb;
 }imu_config_t;
 
+extern attitude_t AHRS;
 void imu_update_ahrs();
 void imu_calibrate();
 

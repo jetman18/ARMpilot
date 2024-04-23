@@ -1,5 +1,4 @@
 #include "scheduler.h"
-
 void main_loop(){
 
 	init_scheduler();
