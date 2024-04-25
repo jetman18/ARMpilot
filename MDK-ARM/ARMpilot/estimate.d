@@ -1,12 +1,14 @@
-armpilot/estimate.o: ..\Core\flight\estimate.c ..\Core\flight\plane.h \
-  ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
+armpilot/estimate.o: ..\Core\flight\estimate.c ..\Core\Lib\maths.h \
+  C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h \
+  C:\Keil_v5\ARM\ARMCLANG\include\stdint.h \
+  C:\Keil_v5\ARM\ARMCLANG\include\math.h ..\Core\Lib\utils.h \
+  ..\Core\Lib\imu.h ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
   ..\Core\Inc\stm32f1xx_hal_conf.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h \
   ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h \
   ..\Drivers\CMSIS\Include\core_cm3.h \
-  C:\Keil_v5\ARM\ARMCLANG\include\stdint.h \
   C:\Users\tuan\Documents\Stmproject\ARMpilot\Drivers\CMSIS\Include\cmsis_version.h \
   C:\Users\tuan\Documents\Stmproject\ARMpilot\Drivers\CMSIS\Include\cmsis_compiler.h \
   C:\Users\tuan\Documents\Stmproject\ARMpilot\Drivers\CMSIS\Include\cmsis_armclang.h \
@@ -30,4 +32,6 @@ armpilot/estimate.o: ..\Core\flight\estimate.c ..\Core\flight\plane.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_sdmmc.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
-  ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h
+  ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
+  ..\Core\Lib\axis.h C:\Keil_v5\ARM\ARMCLANG\include\stdio.h \
+  ..\Core\Driver\ibus.h

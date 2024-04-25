@@ -1,7 +1,7 @@
 #include "maths.h"
 #include "ibus.h"
 #include "timer.h"
-
+#include "usart.h"
 #define IBUS_BUFFSIZE 32
 #define IBUS_SYNCBYTE 0x20
 #define FALSE 0
@@ -14,6 +14,7 @@ uint32_t ibusChannelData[IBUS_MAX_CHANNEL];
 static uint8_t ibus[IBUS_BUFFSIZE] = {0, };
 static uint8_t rx_buff;
 static UART_HandleTypeDef *uart;
+uint32_t ibus_interrupt_timer;
 
 #ifdef DMA_MODE
 static uint8_t buffer_dma[2*IBUS_BUFFSIZE];
@@ -45,6 +46,7 @@ UART_HandleTypeDef *ibus_uart_port(){
    return uart;
 }
 
+uint32_t ngat_loi;
 void ibus_run(){
 #ifdef DMA_MODE
    if(is_receive_cpl){
@@ -58,11 +60,19 @@ void ibus_run(){
 	is_receive_cpl = 0;
    }
 #else 
+   uint32_t interrupt_ok = millis() - ibus_interrupt_timer;
+   if(interrupt_ok > 1000){
+	   ngat_loi ++;
+   }
    ibusFrameComplete();
 #endif
 }
 
+
+int ibus_interrupt_count;
 void ibus_calback(){
+	ibus_interrupt_count++;
+	ibus_interrupt_timer = millis();
 #ifdef DMA_MODE
 	is_receive_cpl = 1;
 #else 

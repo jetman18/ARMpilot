@@ -1,3 +1,4 @@
+/*
 #include"simulation.h"
 #include "maths.h"
 #include "utils.h"
@@ -166,13 +167,13 @@ void dynamic_loop(float dt){
 
    
      // moment
-     /* -  <---- CH2 -----> +
+      -  <---- CH2 -----> +
                 +
                 |
                ch3
                 |
                 -
-    */
+    
     //scale to deg
     ctrl_left  *= 40;
     ctrl_right *= 40;
@@ -238,3 +239,4 @@ static float swap360(float val){
         val = 359;
     return val;
 }
+*/

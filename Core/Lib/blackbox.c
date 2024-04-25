@@ -47,6 +47,21 @@ int black_box_create_file(black_box_file_t *fs,char *file_name){
    return -1;
 }
 
+int black_box_open_file(black_box_file_t *fs,char *file_name,uint8_t mode){
+   if(isSdcard_valid){
+       return 0;
+   } 
+    fs->buffer_index = 0;
+    uint8_t open = f_open(&fs->file,file_name,mode);
+    f_lseek(&fs->file,fs->file.fsize);
+    if(open == FR_OK){
+        return 0;
+    }
+   
+   return -1;
+}
+
+
 /*  read data
  *  
  */
@@ -92,6 +107,7 @@ void black_box_pack_float(black_box_file_t *fs,float val,uint8_t digit_after_poi
  *  Description: Convert a integer number to string and write to buffer
  *  Input (int type [-2147483647 2147483647] )
  */
+
 void black_box_pack_int(black_box_file_t *fs,int val){
     if(isSdcard_valid){
         return;
@@ -164,16 +180,16 @@ void black_box_pack_str(black_box_file_t *fs,const char *c){
 /*
  * Description: Write buffer to sd card
  */
-
 void black_box_load(black_box_file_t *fs)
  {
       if(isSdcard_valid)
-		  return;
+		  return; 
+	// __disable_irq();	  
       isSdcard_write = f_puts(fs->buffer,&fs->file);
+	//__enable_irq();
+
       memset(fs->buffer,0,sizeof(fs->buffer));
       fs->buffer_index = 0;
-
-    
  }
 
 
@@ -326,3 +342,4 @@ static int Float_to_string(float f, uint8_t places, char strOut[])
     }
     return length;
 }
+

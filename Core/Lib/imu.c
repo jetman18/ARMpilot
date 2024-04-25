@@ -23,7 +23,9 @@ float integralFBz;
 float acc_Eframe[3];
 static const float Ki = 0;
 static const float Kp = 2;
-const float Dt_ahrs = 0.01f;
+const float Dt_ahrs = 0.0125f;
+
+float cosx,cosy,cosz,sinx,siny, sinz,tany;
 // calibration 
 int16_t gyr_offs_x;
 int16_t gyr_offs_y;
@@ -267,6 +269,14 @@ void imu_update_ahrs(){
 	float sinx = sin_approx(roll_rad);
 	float cosy = cos_approx(pitch_rad);
 	float tany = tan_approx(pitch_rad);
+
+	cosx = cos_approx(roll_rad);
+    cosy = cos_approx(pitch_rad);
+    cosz = cos_approx(yaw_rad);
+    sinx = sin_approx(roll_rad);
+    siny = sin_approx(pitch_rad);
+    sinz = sin_approx(yaw_rad);
+    tany = tan_approx(pitch_rad);
 	
 	// Body rate to euler rate (Deg/s)
     AHRS.roll_rate  = (P + R*cosx*tany + Q*sinx*tany)*DEG;

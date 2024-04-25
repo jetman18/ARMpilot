@@ -5,22 +5,34 @@
 #include "pwm.h"
 #include "timer.h"
 #include "ibus.h"
-#define loop_s 0.01 // 100h
+#define loop_s 0.0125 // 100h
 
+extern attitude_t AHRS;
+const float aircarf_weight = 0.8; //kg
+extern float cosx,cosy,cosz,sinx,siny, sinz,tany;
 
-#ifdef SIMULATION
-extern attitude_t AHRS;
-#include "simulation.h"
-   extern sim_attitude arrow;
-#else
-extern attitude_t AHRS;
-#endif
 float roll_cmd;
 float pitch_cmd;
+
 static pid_t roll_rate,pitch_rate,yaw_rate;
 static pid_t roll_angle,pitch_angle,yaw_angle;
+static float roll_pid_filted= 0,pitch_pid_filted = 0;
+static float roll_trim = 0,pitch_trim = 10;
 
+static float last_ab_velocity = 0;
+static float absolute_velocity_filter;
+static uint8_t gps_lost;
+
+float const acc_threshold; 
+uint16_t servoL,servoR;
+static int16_t smooth_ch1=0, smooth_ch2=0;
+
+
+float v_dynamic = 0;
+const float Cd = 0.01;
+float maxx_thrust = 8;
 void attitude_ctrl_init(){
+   gps_lost = 1;
    // init pid 
    pid_init(&roll_rate,3,0,0,100,100,loop_s);
    pid_init(&roll_angle,10,0,0,100,100,loop_s);
@@ -28,35 +40,54 @@ void attitude_ctrl_init(){
    pid_init(&pitch_rate,3,0,0,100,100,loop_s);
    pid_init(&pitch_angle,10,0,0,100,100,loop_s);
 
-
 }
 
-// 100 hz
 void attitude_ctrl(){ 
-#ifdef SIMULATION
-    float roll_r = arrow.roll_rate;
-    float pitch_r = arrow.pitch_rate;
-    float yaw_r = arrow.yaw_rate;
-    float roll = arrow.roll;
-    float pitch = arrow.pitch;
-    float yaw = arrow.yaw;
-    float velocity = arrow.velocity;
-#else
+
     float roll_r = AHRS.roll_rate;
     float pitch_r = AHRS.pitch_rate;
     float yaw_r = AHRS.yaw_rate;
     float roll = AHRS.roll;
     float pitch = AHRS.pitch;
     float yaw = AHRS.yaw;
-    float velocity = 0;
     float roll_cmd = ((int)ibusChannelData[0] - 1500)*0.1f;
 	float pitch_cmd = ((int)ibusChannelData[1] - 1500)*-0.1f;
-#endif
-    
-	uint16_t servoL,servoR;
-	static float roll_pid_filted= 0,pitch_pid_filted = 0;
-    static float roll_trim = 0,pitch_trim = 10;
-	 static int16_t smooth_ch1=0, smooth_ch2=0;
+
+    // U velocity esitmate
+	float thrust = ((float)ibusChannelData[CH3] - 1000)/1000*maxx_thrust;
+    float acc = thrust - v_dynamic*v_dynamic*Cd - aircarf_weight*9.81*siny;
+    v_dynamic += acc*loop_s;
+
+    /*
+    // pid scale with gps velocity 
+    if(_gps.fix > 1){
+        float vn = (float)_gps.velocity[0]/100;  // m
+        float ve = (float)_gps.velocity[1]/100;  // m
+        //float vd = (float)_gps.velocity[3]/100;
+
+        float absolute_velocity = sqrtf(vn*vn + ve*ve);
+        if(gps_lost){
+            last_ab_velocity = absolute_velocity;
+            gps_lost = 0;
+        }
+        // max speed 120 km/h -> 33 m/s
+        absolute_velocity = constrainf(absolute_velocity,0,33); 
+        // calculate acceleration 
+        float acc_ = (absolute_velocity - last_ab_velocity)/Dt;
+        // apply threshold
+        if (abs(acc_) > acc_threshold){
+            absolute_velocity = last_ab_velocity + sign(acc_)*0.3f;
+        }
+        // apply filter 
+        absolute_velocity_filter += 0.4f*(absolute_velocity - absolute_velocity_filter);
+        last_ab_velocity = absolute_velocity;
+        
+    }
+    else{
+        gps_lost = 1;
+    }
+    */
+    // stablize mode
     if(ibusChannelData[CH5] > 1600 ){
 
         float roll_pid_gain = ((int)ibusChannelData[CH7] - 1000)*0.001f;
@@ -68,29 +99,30 @@ void attitude_ctrl(){
         //pitch axis
         float p_angle_pid = pid_cal(&pitch_angle,pitch,pitch_cmd + pitch_trim);
         float p_rate_pid  = -pid_cal(&pitch_rate,-pitch_r,p_angle_pid);
+       
 
-        // need to fix
-        float scale_pid = 900.0f/MAX(900,velocity*velocity);
-        scale_pid = 1;
-        
-        r_rate_pid = r_rate_pid*scale_pid*roll_pid_gain;
-        p_rate_pid = p_rate_pid*scale_pid*pitch_pid_gain;
+        float scale_velocity = 1.0/MAX(1.0,v_dynamic);//  MAX(1.0,v_dynamic*v_dynamic)
+        scale_velocity = constrainf(scale_velocity,0.2,1);
+		
+        r_rate_pid = r_rate_pid*scale_velocity*roll_pid_gain;
+        p_rate_pid = p_rate_pid*scale_velocity*pitch_pid_gain;
         
         roll_pid_filted  += 0.4*(r_rate_pid - roll_pid_filted);
         pitch_pid_filted += 0.4*(p_rate_pid - pitch_pid_filted);
+		
+		int s1 = 1500 - ibusChannelData[CH2];
 
-        servoL = 1500 + roll_pid_filted - pitch_pid_filted;
-        servoR = 1500 - roll_pid_filted - pitch_pid_filted;
+        servoL = 1500 + roll_pid_filted + s1;// - pitch_pid_filted;
+        servoR = 1500 - roll_pid_filted + s1;// - pitch_pid_filted;
         
     }
     // manual mode
- 
     else{
         int s1 = 1500 - ibusChannelData[CH1];
         int s2 = 1500 - ibusChannelData[CH2];
 
-        smooth_ch1 += 0.5*(s1 - smooth_ch1);
-        smooth_ch2 += 0.5*(s2 - smooth_ch2);
+        smooth_ch1 += 0.8*(s1 - smooth_ch1);
+        smooth_ch2 += 0.8*(s2 - smooth_ch2);
             
         servoL = 1500 + smooth_ch1 + smooth_ch2;
         servoR = 1500 - smooth_ch1 + smooth_ch2;

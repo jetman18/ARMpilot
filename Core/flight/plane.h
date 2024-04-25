@@ -27,6 +27,9 @@ void attitude_ctrl_init();
 // mainloop
 void main_loop();
 
+//estimate 
+void estimates_start();
+
 #ifdef __cplusplus
 }
 #endif

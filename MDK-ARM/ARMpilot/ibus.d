@@ -33,4 +33,5 @@ armpilot/ibus.o: ..\Core\Driver\ibus.c ..\Core\Lib\maths.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
-  ..\Core\Lib\timer.h C:\Keil_v5\ARM\ARMCLANG\include\stdio.h
+  ..\Core\Lib\timer.h C:\Keil_v5\ARM\ARMCLANG\include\stdio.h \
+  ..\Core\Inc\usart.h ..\Core\Inc\main.h

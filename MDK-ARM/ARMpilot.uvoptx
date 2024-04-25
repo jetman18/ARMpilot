@@ -153,12 +153,12 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>task,0x0A</ItemText>
+          <ItemText>ibusChannelData,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ibusChannelData,0x0A</ItemText>
+          <ItemText>v_dynamic</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

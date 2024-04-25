@@ -16,6 +16,7 @@ typedef struct{
 
 int black_box_init();
 int black_box_create_file(black_box_file_t *fs,char *file_name);
+int black_box_open_file(black_box_file_t *fs,char *file_name,uint8_t mode);
 uint32_t black_box_get_total_space();
 uint32_t black_box_get_free_space();
 void black_box_pack_int(black_box_file_t *fs,int val);

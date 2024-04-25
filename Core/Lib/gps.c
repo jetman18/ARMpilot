@@ -220,10 +220,11 @@ void gps_thread(){
 /* 
  * REad gps by using interrup
  */
-
+uint32_t gps_interrupt_count;
 void gps_callback()
 {
    // parse data
+   gps_interrupt_count++;
    newdata(_char);
    HAL_UART_Receive_IT(_gpsUartPort, &_char,ONE_BYTE);
 }

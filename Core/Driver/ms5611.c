@@ -176,6 +176,7 @@ static void ms_5611_readout()
 	// keep it to int32_t and then multiply by 0.01 to get only the level of precision the sensor has.
 	int32_t pressure = 0;
 	int32_t temp = 0;
+    static int32_t temp_ = 0;
 
 	// Calculate 1st order pressure and temperature based on sensor used.
 	dT=(float)_D2-(float)ms5611_c[5]*256.0f; // _D2 - Tref = _D2 - C5 * 2^8
@@ -185,7 +186,8 @@ static void ms_5611_readout()
 	SENS=(float)ms5611_c[1]*32768.0f+(dT*(float)ms5611_c[3])/256.0f; // SENSt1 + TCS * dT = C1 * 2^15 + (C3*dT) / 2^8
 	
 	temp=(2000.0f+(dT*(float)ms5611_c[6])/8388608.0f)+(float)_TOFFSET; // 20C + dT * TEMPSENS = 2000 + dT * C6 / 2^23
-	
+	temp_ += 0.1*(temp - temp_);
+    temp = temp_;
 	// Perform higher order corrections based on sensor used.
 	double T2=0., OFF2=0., SENS2=0.;
 	if(temp<2000) {
