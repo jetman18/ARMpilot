@@ -5,11 +5,9 @@
 #include "pwm.h"
 #include "timer.h"
 #include "ibus.h"
-#define loop_s 0.0125 // 100h
+#define loop_s 0.02 // 100h
 
 extern attitude_t AHRS;
-const float aircarf_weight = 0.8; //kg
-extern float cosx,cosy,cosz,sinx,siny, sinz,tany;
 
 float roll_cmd;
 float pitch_cmd;
@@ -28,9 +26,6 @@ uint16_t servoL,servoR;
 static int16_t smooth_ch1=0, smooth_ch2=0;
 
 
-float v_dynamic = 0;
-const float Cd = 0.01;
-float maxx_thrust = 8;
 void attitude_ctrl_init(){
    gps_lost = 1;
    // init pid 
@@ -53,10 +48,6 @@ void attitude_ctrl(){
     float roll_cmd = ((int)ibusChannelData[0] - 1500)*0.1f;
 	float pitch_cmd = ((int)ibusChannelData[1] - 1500)*-0.1f;
 
-    // U velocity esitmate
-	float thrust = ((float)ibusChannelData[CH3] - 1000)/1000*maxx_thrust;
-    float acc = thrust - v_dynamic*v_dynamic*Cd - aircarf_weight*9.81*siny;
-    v_dynamic += acc*loop_s;
 
     /*
     // pid scale with gps velocity 
@@ -101,8 +92,8 @@ void attitude_ctrl(){
         float p_rate_pid  = -pid_cal(&pitch_rate,-pitch_r,p_angle_pid);
        
 
-        float scale_velocity = 1.0/MAX(1.0,v_dynamic);//  MAX(1.0,v_dynamic*v_dynamic)
-        scale_velocity = constrainf(scale_velocity,0.2,1);
+        float scale_velocity = 1.0;
+       
 		
         r_rate_pid = r_rate_pid*scale_velocity*roll_pid_gain;
         p_rate_pid = p_rate_pid*scale_velocity*pitch_pid_gain;

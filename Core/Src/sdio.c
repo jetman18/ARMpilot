@@ -47,7 +47,7 @@ void MX_SDIO_SD_Init(void)
   hsd.Init.HardwareFlowControl = SDIO_HARDWARE_FLOW_CONTROL_DISABLE;
   hsd.Init.ClockDiv = 2;
   /* USER CODE BEGIN SDIO_Init 2 */
-  hsd.Init.ClockDiv = 24;
+  hsd.Init.ClockDiv = 40;
   /* USER CODE END SDIO_Init 2 */
 
 }

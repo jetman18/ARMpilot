@@ -8,22 +8,23 @@
 #include "axis.h"
 #include "mpu6050.h"
 #include "hmc5883.h"
+#include "compass.h"
 #include "i2c.h"
 #include "config.h"
 #include "utils.h"
 //#define SPI
 #define ACCSMOOTH
 #define OFFSET_CYCLE  1000
-#define USE_MAG 0
+#define USE_MAG 1
 
 attitude_t AHRS;
 float integralFBx;
 float integralFBy;
 float integralFBz;
 float acc_Eframe[3];
-static const float Ki = 0;
-static const float Kp = 2;
-const float Dt_ahrs = 0.0125f;
+static const float Ki = 1;
+static const float Kp = 7;
+const float Dt_ahrs = 0.02f;
 
 float cosx,cosy,cosz,sinx,siny, sinz,tany;
 // calibration 
@@ -134,7 +135,7 @@ void imu_update_ahrs(){
 	float acc_Bframe[3];
 	float hx,hy,bx,bz;
     float wx,wy,wz,mx,my,mz;
-	static float emx,emy,emz;
+	float emx,emy,emz;
 	float accex,accey,accez;
 	static float dcm[3][3];
 	float P,Q,R;
@@ -162,9 +163,8 @@ void imu_update_ahrs(){
 		accex = acce.x * norm;
 		accey = acce.y * norm;
 		accez = acce.z * norm;
-
-/*
-        if(USE_MAG && hmc_get_raw(&mag)){
+        if(USE_MAG){
+			compass_get(&mag);
 			norm = invSqrt_(mag.x * mag.x + mag.y * mag.y + mag.z * mag.z);
 			mx = mag.x * norm;
 			my = mag.y * norm;
@@ -188,7 +188,7 @@ void imu_update_ahrs(){
 			emy = 0.0f;
 			emz = 0.0f;
 		}
-*/
+
 		vx = dcm[0][2];
 		vy = dcm[1][2];
 		vz = dcm[2][2];
@@ -264,6 +264,9 @@ void imu_update_ahrs(){
 	float roll_rad = atan2_approx(-dcm[0][2],sqrtf(1 - dcm[0][2]*dcm[0][2])); 
 	float pitch_rad = -atan2_approx(-dcm[1][2],dcm[2][2]);
 	float yaw_rad = -atan2_approx(dcm[0][1],dcm[0][0]);   
+	if(yaw_rad < 0){
+	   yaw_rad = 360*RAD + yaw_rad;
+	}
 	
 	float cosx = cos_approx(roll_rad);
 	float sinx = sin_approx(roll_rad);

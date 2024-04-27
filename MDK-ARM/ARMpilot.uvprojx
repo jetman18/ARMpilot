@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../Core/Driver;../Core/flight;../Core/Lib;../Core/mavlink;../Core/mavlink/common;../FATFS/Target;../FATFS/App;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/FatFs/src/drivers;../Core/simulation</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../Core/Driver;../Core/flight;../Core/Lib;../Core/mavlink;../Core/mavlink/common;../FATFS/Target;../FATFS/App;../Middlewares/Third_Party/FatFs/src;../Middlewares/Third_Party/FatFs/src/drivers;../Core/simulation;..\Core\epprom</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -444,6 +444,16 @@
               <FileName>interrupt.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Core\Driver\interrupt.h</FilePath>
+            </File>
+            <File>
+              <FileName>qmc5883.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Driver\qmc5883.c</FilePath>
+            </File>
+            <File>
+              <FileName>qmc5883.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Driver\qmc5883.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1289,6 +1299,21 @@
               <FileName>protocol.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Core\mavlink\protocol.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>epprom</GroupName>
+          <Files>
+            <File>
+              <FileName>AT24Cxx_stm32_hal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\epprom\AT24Cxx_stm32_hal.c</FilePath>
+            </File>
+            <File>
+              <FileName>AT24Cxx_stm32_hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\epprom\AT24Cxx_stm32_hal.h</FilePath>
             </File>
           </Files>
         </Group>

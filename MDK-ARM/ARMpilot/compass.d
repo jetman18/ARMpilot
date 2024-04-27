@@ -31,8 +31,9 @@ armpilot/compass.o: ..\Core\Lib\compass.c \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
-  ..\Core\Lib\compass.h ..\Core\Driver\hmc5883.h \
-  ..\Core\Driver\..\lib\axis.h C:\Keil_v5\ARM\ARMCLANG\include\stdio.h \
+  ..\Core\Lib\compass.h ..\Core\Lib\axis.h \
+  C:\Keil_v5\ARM\ARMCLANG\include\stdio.h ..\Core\Driver\hmc5883.h \
+  ..\Core\Driver\..\lib\axis.h ..\Core\Driver\qmc5883.h \
   ..\Core\Lib\blackbox.h ..\FATFS\App\fatfs.h \
   ..\Middlewares\Third_Party\FatFs\src\ff.h \
   ..\Middlewares\Third_Party\FatFs\src\integer.h \
@@ -44,4 +45,5 @@ armpilot/compass.o: ..\Core\Lib\compass.c \
   ..\Core\Lib\maths.h C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h \
   C:\Keil_v5\ARM\ARMCLANG\include\math.h ..\Core\Inc\i2c.h \
   ..\Core\Lib\timer.h ..\Core\Inc\gpio.h ..\Core\Lib\faulthandler.h \
-  C:\Keil_v5\ARM\ARMCLANG\include\string.h ..\Core\Lib\axis.h
+  C:\Keil_v5\ARM\ARMCLANG\include\string.h \
+  ..\Core\epprom\AT24Cxx_stm32_hal.h

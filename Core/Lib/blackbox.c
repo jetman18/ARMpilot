@@ -70,13 +70,11 @@ int black_box_read(black_box_file_t *fs, char *file_name, char *bufferr,uint8_t 
 {
     if(isSdcard_valid){
         return 0;
-    } 
-    f_open(&fs->file,file_name,FA_READ);
+    }
 	memset(bufferr,0,len);
-    if(!f_gets(bufferr,len,&fs->file)){
-	   return -1;
-	}
-    f_close(&fs->file);
+    f_gets(bufferr,len,&fs->file);
+	//   return -1;
+	//
 	return 0;
 }
 

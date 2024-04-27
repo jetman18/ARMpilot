@@ -71,6 +71,8 @@ void Error_Handler(void);
 #define CK_GPIO_Port GPIOC
 #define CMD_Pin GPIO_PIN_2
 #define CMD_GPIO_Port GPIOD
+#define magnet_calibrate_Pin GPIO_PIN_5
+#define magnet_calibrate_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

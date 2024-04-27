@@ -36,5 +36,5 @@ armpilot/imu.o: ..\Core\Lib\imu.c ..\Core\Lib\log.h \
   C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h \
   C:\Keil_v5\ARM\ARMCLANG\include\math.h ..\Core\Lib\filter.h \
   ..\Core\Lib\timer.h ..\Core\Driver\mpu6050.h ..\Core\Driver\hmc5883.h \
-  ..\Core\Driver\..\lib\axis.h ..\Core\Inc\i2c.h ..\Core\Inc\main.h \
-  ..\Core\flight\config.h ..\Core\Lib\utils.h
+  ..\Core\Driver\..\lib\axis.h ..\Core\Lib\compass.h ..\Core\Inc\i2c.h \
+  ..\Core\Inc\main.h ..\Core\flight\config.h ..\Core\Lib\utils.h

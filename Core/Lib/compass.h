@@ -4,8 +4,11 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+#include "axis.h"
 
 void compassInit();
+void compass_get(axis3_t *out);
+void test_compass();
 
 #ifdef __cplusplus
 }
